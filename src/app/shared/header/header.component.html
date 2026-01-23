@@ -1,0 +1,26 @@
+<header class="site-header">
+  <div class="header-inner">
+    <img src="/assets/logo/Ficus_Horizontal.png" alt="Ficus" class="logo" />
+
+    <button
+      class="menu-toggle"
+      aria-label="Abrir menu"
+      [attr.aria-expanded]="isMenuOpen"
+      (click)="toggleMenu()"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <div class="menu-overlay" [class.is-open]="isMenuOpen" (click)="closeMenu()"></div>
+
+  <nav class="menu-panel" [class.is-open]="isMenuOpen" aria-label="Menu principal">
+    <a routerLink="/home" (click)="closeMenu()">Home</a>
+    <a routerLink="/servicos" (click)="closeMenu()">Serviços</a>
+    <a routerLink="/publico" (click)="closeMenu()">Público</a>
+    <a routerLink="/metodo" (click)="closeMenu()">Método</a>
+    <a routerLink="/contato" (click)="closeMenu()">Contato</a>
+  </nav>
+</header>
