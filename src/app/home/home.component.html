@@ -1,14 +1,14 @@
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-overlay"></div>
+<section class="destaque">
+  <div class="destaque-overlay"></div>
 
-  <div class="hero-content">
+  <div class="destaque-content">
     <h1>
       Reforma que valoriza.<br />
       Fachada que <span>IMPRESSIONA.</span>
     </h1>
 
-    <div class="hero-buttons">
+    <div class="destaque-botoes">
       <a href="#" class="btn btn-outline">Solicitar orçamento</a>
       <a href="#" class="btn btn-outline">Falar com a Ficus</a>
     </div>
@@ -26,47 +26,25 @@
       <!-- Card grande -->
       <article class="wwd-main-card">
         <div class="wwd-main-icon" aria-hidden="true">
-          <!-- Troque por SVG/IMG do seu ícone -->
-          <img src="/assets/icons/house.svg" alt="" />
+          <img [src]="getServicoAtivo().icon" alt="" />
         </div>
 
-        <h3>Recuperação de fachadas</h3>
-        <p>
-          Limpeza, pintura,<br />
-          textura, cerâmicas,<br />
-          pastilhas e granitos
-        </p>
+        <h3>{{ getServicoAtivo().title }}</h3>
+        <p>{{ getServicoAtivo().description }}</p>
       </article>
 
       <!-- Pílulas verticais -->
       <div class="wwd-pills">
-        <a class="wwd-pill" href="#">
-          <span class="wwd-pill-icon" aria-hidden="true">
-            <img src="/assets/icons/ink.svg" alt="" />
-          </span>
-          <span class="wwd-pill-text">Impermeabilização</span>
-        </a>
-
-        <a class="wwd-pill" href="#">
-          <span class="wwd-pill-icon" aria-hidden="true">
-            <img src="/assets/icons/plug.svg" alt="" />
-          </span>
-          <span class="wwd-pill-text">Elétrica e hidráulica</span>
-        </a>
-
-        <a class="wwd-pill" href="#">
-          <span class="wwd-pill-icon" aria-hidden="true">
-            <img src="/assets/icons/glass.svg" alt="" />
-          </span>
-          <span class="wwd-pill-text">Esquadrias e vidros</span>
-        </a>
-
-        <a class="wwd-pill" href="#">
-          <span class="wwd-pill-icon" aria-hidden="true">
-            <img src="/assets/icons/urban-planning.svg" alt="" />
-          </span>
-          <span class="wwd-pill-text">Revitalização</span>
-        </a>
+        @for (servico of servicos; track servico.id) {
+          @if (servico.id !== servicoAtivoId) {
+            <button class="wwd-pill" type="button" (click)="setServicoAtivo(servico.id)">
+              <span class="wwd-pill-icon" aria-hidden="true">
+                <img [src]="servico.icon" alt="" />
+              </span>
+              <span class="wwd-pill-text">{{ servico.title }}</span>
+            </button>
+          }
+        }
       </div>
     </div>
 

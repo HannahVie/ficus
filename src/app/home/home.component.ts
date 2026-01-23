@@ -15,6 +15,41 @@ export class HomeComponent {
   telefone = '';
   mensagem = '';
 
+  servicos = [
+    {
+      id: 'fachadas',
+      title: 'Recuperação de fachadas',
+      description: 'Limpeza, pintura, textura, cerâmicas, pastilhas e granitos',
+      icon: '/assets/icons/house.svg'
+    },
+    {
+      id: 'impermeabilizacao',
+      title: 'Impermeabilização',
+      description: 'Soluções para proteger estruturas e aumentar a vida útil das áreas expostas.',
+      icon: '/assets/icons/ink.svg'
+    },
+    {
+      id: 'hidraulica',
+      title: 'Elétrica e hidráulica',
+      description: 'Revisões, adequações e modernizações com responsabilidade técnica.',
+      icon: '/assets/icons/plug.svg'
+    },
+    {
+      id: 'esquadrias',
+      title: 'Esquadrias e vidros',
+      description: 'Instalação, ajustes e substituições com precisão e segurança.',
+      icon: '/assets/icons/glass.svg'
+    },
+    {
+      id: 'revitalizacao',
+      title: 'Revitalização',
+      description: 'Transformação de ambientes e áreas comuns com foco em funcionalidade e estética.',
+      icon: '/assets/icons/urban-planning.svg'
+    }
+  ];
+
+  servicoAtivoId = 'fachadas';
+
   formatPhone(value: string): string {
     const digits = value.replace(/\D+/g, '').slice(0, 11);
     if (digits.length <= 2) {
@@ -41,6 +76,14 @@ export class HomeComponent {
     this.nome = sanitized;
     control.control.setValue(sanitized, { emitEvent: false });
     control.control.updateValueAndValidity({ emitEvent: false });
+  }
+
+  setServicoAtivo(id: string): void {
+    this.servicoAtivoId = id;
+  }
+
+  getServicoAtivo() {
+    return this.servicos.find((servico) => servico.id === this.servicoAtivoId) ?? this.servicos[0];
   }
 
 }
