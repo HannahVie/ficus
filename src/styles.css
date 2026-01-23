@@ -623,8 +623,14 @@ body {
 ======================= */
 .site-footer{
   background: var(--brand-beige);
-  padding: 70px 32px;
+  padding: 70px 0;
   color: var(--white);
+}
+
+.footer-container{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
 }
 
 .footer-card{
@@ -632,8 +638,6 @@ body {
   border-radius: 28px;
   padding: 44px 52px 28px;
   color: var(--white);
-  max-width: 1200px;
-  margin: 0 auto;
   width: 100%;
   display: grid;
   grid-template-columns: 200px 1fr 1fr;
@@ -759,6 +763,14 @@ body {
         height: 190px;
     }
 
+    .hero-content{
+        padding: 0 48px;
+    }
+
+    .hero h1{
+        font-size: 3rem;
+    }
+
     .footer-card{
         grid-template-columns: 1fr;
         padding: 32px 28px;
@@ -780,9 +792,88 @@ body {
     }
 }
 
+@media (max-width: 720px) {
+    .site-header{
+        position: relative;
+        background: transparent;
+    }
+
+    .logo{
+        height: 72px;
+    }
+
+    .hero{
+        height: auto;
+        min-height: 70vh;
+        padding: 120px 0 60px;
+    }
+
+    .hero-content{
+        padding: 0 28px;
+    }
+
+    .hero h1{
+        font-size: 2.4rem;
+    }
+
+    .hero-buttons{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn{
+        width: 100%;
+        text-align: center;
+    }
+
+    .wwd-row{
+        gap: 18px;
+    }
+
+    .wwd-main-card{
+        padding: 28px 28px;
+    }
+
+    .wwd-pill{
+        height: 64px;
+    }
+
+    .hww-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .hww-card{
+        height: 200px;
+    }
+
+    .audience{
+        padding: 70px 0;
+    }
+
+    .audience-card{
+        gap: 22px;
+    }
+
+    .audience-image{
+        max-height: 200px;
+    }
+
+    .contact{
+        padding: 70px 0 90px;
+    }
+
+    .contact-card{
+        padding: 28px 24px;
+    }
+}
+
 @media (max-width: 520px) {
     .site-footer{
-        padding: 60px 20px;
+        padding: 60px 0;
+    }
+
+    .footer-container{
+        padding: 0 20px;
     }
 
     .field-hint{
@@ -794,6 +885,27 @@ body {
 
     .field-hint::after{
         left: 16px;
+    }
+
+    .contact-card{
+        padding: 28px 22px;
+    }
+
+    .contact-left h2{
+        font-size: 2rem;
+    }
+
+    .footer-logo{
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    .footer-card{
+        padding: 32px 24px;
+    }
+
+    .footer-bottom{
+        gap: 6px;
     }
 }
 
@@ -809,6 +921,16 @@ body {
 
     .audience-text h2 {
         font-size: 2rem;
+    }
+
+    .contact-card{
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 36px 32px;
+    }
+
+    .contact-actions{
+        justify-content: flex-start;
     }
 }
 
