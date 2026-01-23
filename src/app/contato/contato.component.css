@@ -1,1 +1,92 @@
-/* Estilos locais da página de contato ficam em src/styles.css */
+.pagina-destaque--contato{
+  background-image: url('/assets/images/view-modern-futuristic-work-space-with-furniture.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.contato-pagina{
+  display: grid;
+}
+
+.contato-card{
+  background: var(--brand-purple);
+  color: var(--white);
+  border-radius: 24px;
+  padding: 32px;
+  display: grid;
+  gap: 24px;
+}
+
+.contato-texto h2{
+  font-size: 1.2rem;
+}
+
+.contato-formulario{
+  display: grid;
+  gap: 16px;
+}
+
+.contato-linha{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.contato-linha label{
+  display: grid;
+  gap: 6px;
+}
+
+.contato-linha--mensagem{
+  grid-template-columns: 1fr;
+}
+
+.contato-linha input,
+.contato-linha textarea{
+  border-radius: 999px;
+  border: 1px solid var(--white-35);
+  background: var(--white-06);
+  color: var(--white);
+  padding: 10px 12px;
+}
+
+.contato-linha textarea{
+  border-radius: 18px;
+  resize: vertical;
+}
+
+.contato-acoes{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.contato-acoes button{
+  border-radius: 999px;
+  border: 1px solid var(--white-55);
+  background: transparent;
+  color: var(--white);
+  padding: 10px 28px;
+  cursor: pointer;
+}
+
+.contato-icones{
+  display: flex;
+  gap: 10px;
+}
+
+.contato-icones span{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--white-35);
+}
+
+@media (max-width: 720px){
+  .contato-linha{
+    grid-template-columns: 1fr;
+  }
+
+  .contato-acoes{
+    justify-content: flex-start;
+  }
+}

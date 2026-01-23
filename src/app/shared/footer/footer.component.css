@@ -1,6 +1,6 @@
 /* Footer */
 .site-footer{
-  background: var(--brand-beige);
+  background: var(--off-white);
   padding: 70px 0;
   color: var(--white);
 }
@@ -19,17 +19,23 @@
   width: 100%;
   display: grid;
   grid-template-columns: 200px 1fr 1fr;
+  grid-template-areas:
+    "logo nav info"
+    "logo nav icons"
+    "bottom bottom bottom";
   gap: 28px;
   align-items: start;
 }
 
 .footer-logo{
+  grid-area: logo;
   width: 170px;
   height: auto;
   display: block;
 }
 
 .footer-nav{
+  grid-area: nav;
   display: grid;
   gap: 10px;
 }
@@ -37,7 +43,7 @@
 .footer-nav a{
   color: var(--white-70);
   text-decoration: none;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .footer-nav a:hover{
@@ -45,8 +51,9 @@
 }
 
 .footer-info{
+  grid-area: info;
   color: var(--white-80);
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.6;
 }
 
@@ -60,14 +67,17 @@
 
 /* ícones */
 .footer-icons{
+  grid-area: icons;
   margin-top: 14px;
   display: flex;
   gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .footer-icon{
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 999px;
   border: 1px solid var(--white-25);
   display: inline-flex;
@@ -84,6 +94,7 @@
 
 /* parte de baixo separada */
 .footer-bottom{
+  grid-area: bottom;
   grid-column: 1 / -1;
   margin-top: 10px;
   padding-top: 16px;
@@ -93,12 +104,18 @@
   align-items: center;
   gap: 16px;
   color: var(--white-65);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 @media (max-width: 980px) {
   .footer-card{
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "logo"
+      "nav"
+      "info"
+      "icons"
+      "bottom";
     padding: 32px 28px;
     border-radius: 34px;
     text-align: center;

@@ -1,1 +1,67 @@
-/* Estilos locais da página de serviços ficam em src/styles.css */
+.pagina-destaque--servicos{
+  background-image: url('/assets/images/architect-engineer-design-working-blueprint-planning-concept-construction-concept-selective-focus.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.servicos-lista{
+  display: grid;
+  gap: 24px;
+}
+
+.servico-card{
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 24px;
+  padding: 22px;
+  border-radius: 20px;
+  align-items: center;
+}
+
+.servico-card--invertido{
+  grid-template-columns: 1fr 180px;
+}
+
+.servico-card--verde{
+  background: var(--brand-fig-green);
+  color: var(--white);
+}
+
+.servico-card--vinho{
+  background: var(--brand-wine);
+  color: var(--white);
+}
+
+.servico-card--roxo{
+  background: var(--brand-purple);
+  color: var(--white);
+}
+
+.servico-imagem{
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  background: var(--brand-black);
+}
+
+.servico-texto h2{
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.servico-subtexto{
+  opacity: 0.9;
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
+
+@media (max-width: 720px){
+  .servico-card,
+  .servico-card--invertido{
+    grid-template-columns: 1fr;
+  }
+
+  .servico-imagem{
+    aspect-ratio: 16 / 9;
+  }
+}

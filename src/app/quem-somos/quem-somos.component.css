@@ -1,1 +1,141 @@
-/* Estilos locais da página de público ficam em src/styles.css */
+.pagina-destaque--quem-somos {
+  position: relative;
+  overflow: hidden;
+}
+
+.pagina-destaque--quem-somos::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/images/architecture-consulting-hands-business-people-blueprint-paperwork-floor-plan-building-project-civil-engineering-development-teamwork-with-creative-design-office-with-ideas.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: grayscale(100%);
+  z-index: 0;
+}
+
+.pagina-destaque--quem-somos>* {
+  position: relative;
+  z-index: 1;
+}
+
+.quem-somos-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 70px;
+}
+
+.quem-somos-topo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+}
+
+.quem-somos-texto {
+  display: grid;
+  gap: 12px;
+  color: var(--text-dark);
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.quem-somos-texto strong {
+  font-weight: 400;
+}
+
+.quem-somos-card h2 {
+  font-weight: 300;
+  font-size: 2.3rem;
+  margin-bottom: 10px;
+}
+
+.quem-somos-card p,
+.quem-somos-lista span {
+  font-weight: 200;
+}
+
+.quem-somos-card p {
+  font-size: 1.5rem;
+}
+
+.quem-somos-imagem {
+  background: url('/assets/images/greyscale-shot-facade-modern-building-with-dark-grey-walls.jpg') center/cover no-repeat;
+  border-radius: 18px;
+  min-height: 300px;
+}
+
+.quem-somos-card {
+  border-radius: 18px;
+  padding: 95px 70px;
+  color: var(--white);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quem-somos-card>* {
+  position: relative;
+  z-index: 1;
+}
+
+.quem-somos-card--visao {
+  background-image: url('/assets/images/light-bulb.png');
+  background-color: var(--brand-fig-green);
+}
+
+.quem-somos-card--missao {
+  background-image: url('/assets/images/target.png');
+  background-color: var(--brand-wine);
+}
+
+.quem-somos-card--valores {
+  background-image: url('/assets/images/charity.png');
+  background-color: var(--brand-purple);
+}
+
+.quem-somos-card--tecnico {
+  background-image: url('/assets/images/architect.png');
+  background-color: #5c5c5c;
+}
+
+.quem-somos-card ul {
+  margin-top: 12px;
+  padding-left: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.quem-somos-lista {
+  display: grid;
+  gap: 12px;
+  margin-inline: 20px;
+  font-size: 1.4rem;
+}
+
+.quem-somos-lista strong {
+  display: block;
+  font-weight: 300;
+  margin-bottom: 2px;
+  font-size: 1.6rem;
+}
+
+.quem-somos-lista div {
+  margin-top: 20px;
+}
+
+@media (max-width: 720px) {
+  .quem-somos-topo {
+    grid-template-columns: 1fr;
+  }
+
+  .quem-somos-card {
+    padding: 20px;
+    min-height: 220px;
+  }
+}
