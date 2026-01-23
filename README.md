@@ -8,6 +8,14 @@ Landing page institucional da Ficus Reforma e Fachada.
 - Node.js 24.13.0
 - npm 11.6.2
 
+## Páginas e rotas
+
+- `/home` - Página principal (landing).
+- `/servicos` - Lista e descrição dos serviços.
+- `/publico` - Público-alvo (para quem fazemos).
+- `/metodo` - Processo/metodologia.
+- `/contato` - Contato e formulário.
+
 ## Como rodar o projeto
 
 1) Instale dependencias:
