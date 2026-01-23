@@ -12,7 +12,7 @@ Landing page institucional da Ficus Reforma e Fachada.
 
 - `/home` - Página principal (landing).
 - `/servicos` - Lista e descrição dos serviços.
-- `/publico` - Público-alvo (para quem fazemos).
+- `/quem-somos` - Quem somos.
 - `/metodo` - Processo/metodologia.
 - `/contato` - Contato e formulário.
 

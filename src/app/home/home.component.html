@@ -9,8 +9,8 @@
     </h1>
 
     <div class="destaque-botoes">
-      <a href="#" class="btn btn-outline">Solicitar orçamento</a>
-      <a href="#" class="btn btn-outline">Falar com a Ficus</a>
+      <a routerLink="/contato" class="btn btn-outline">Solicitar orçamento</a>
+      <a [routerLink]="['/home']" fragment="contato" class="btn btn-outline">Falar com a Ficus</a>
     </div>
   </div>
 </section>
@@ -53,7 +53,7 @@
       segurança, durabilidade e estética.
     </p>
 
-    <a class="wwd-cta" href="#">Conhecer todos os serviços</a>
+    <a class="wwd-cta" routerLink="/servicos">Conhecer todos os serviços</a>
   </div>
 </section>
 
@@ -93,7 +93,7 @@
 </section>
 
 <!-- PARA QUEM FAZEMOS -->
-<section class="audience" id="publico">
+<section class="audience" id="quem-somos">
   <div class="audience-container">
     <div class="audience-card">
       <div class="audience-image">

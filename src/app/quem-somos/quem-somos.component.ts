@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-publico',
+  selector: 'app-quem-somos',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './publico.component.html',
-  styleUrls: ['./publico.component.css']
+  templateUrl: './quem-somos.component.html',
+  styleUrls: ['./quem-somos.component.css']
 })
-export class PublicoComponent {}
+export class QuemSomosComponent {}

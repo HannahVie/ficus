@@ -15,8 +15,8 @@ export const routes: Routes = [
     loadChildren: () => import('./servicos/servicos.module').then((m) => m.ServicosModule)
   },
   {
-    path: 'publico',
-    loadChildren: () => import('./publico/publico.module').then((m) => m.PublicoModule)
+    path: 'quem-somos',
+    loadChildren: () => import('./quem-somos/quem-somos.module').then((m) => m.QuemSomosModule)
   },
   {
     path: 'metodo',

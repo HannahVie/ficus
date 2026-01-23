@@ -2,16 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
-import { PublicoComponent } from './publico.component';
+import { QuemSomosComponent } from './quem-somos.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: PublicoComponent
+    component: QuemSomosComponent
   }
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forChild(routes), PublicoComponent]
+  imports: [CommonModule, RouterModule.forChild(routes), QuemSomosComponent]
 })
-export class PublicoModule {}
+export class QuemSomosModule {}
