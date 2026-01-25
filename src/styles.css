@@ -66,6 +66,14 @@ body {
     color: var(--white);
 }
 
+p {
+    font-size: 1.2rem;
+    /* tamanho base mais confortável */
+    line-height: 1.65;
+    /* melhora MUITO a leitura */
+}
+
+
 /* =======================
    PÁGINAS
 ======================= */
@@ -208,14 +216,13 @@ body {
 }
 
 .wwd-header p {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     color: var(--text-mid);
     margin-bottom: 40px;
 }
 
 .wwd-row {
     display: flex;
-    gap: 28px;
     align-items: stretch;
 }
 
@@ -266,6 +273,7 @@ body {
     opacity: 0.85;
     line-height: 1.5;
     font-weight: 400;
+    width: 230px;
 }
 
 /* Área das pílulas */
@@ -278,7 +286,8 @@ body {
 
 /* Pílula vertical */
 .wwd-pill {
-    width: 86px;
+    width: 80px;
+    height: 300px;
     background-image: url('/assets/images/Retangulo\ fechado.png');
     background-size: cover;
     background-position: center;
@@ -317,6 +326,7 @@ body {
     font-weight: 700;
     letter-spacing: 0.02em;
     margin-top: 30px;
+    font-size: 1.0rem;
     /* empurra abaixo do ícone */
 }
 
@@ -373,7 +383,7 @@ body {
 }
 
 .hww-header p {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     color: var(--brand-dark-grey);
     margin-bottom: 34px;
 }
@@ -382,14 +392,14 @@ body {
 .hww-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 22px;
     margin-bottom: 20px;
 }
 
 .hww-card {
     position: relative;
     border-radius: 22px;
-    height: 170px;
+    height: 250px;
+    width: 250px;
     background-image: var(--bg);
     background-size: cover;
     background-position: center;
@@ -421,7 +431,7 @@ body {
 
 /* Texto abaixo */
 .hww-footnote {
-    color: var(--text-light);
+    color: #643B43;
     font-size: 1rem;
     line-height: 1.6;
     margin-top: 8px;
@@ -445,23 +455,25 @@ body {
 
 .audience-card {
     display: grid;
-    grid-template-columns: 420px 1fr;
-    gap: 48px;
+    grid-template-columns: 520px 1fr;
+    /* imagem maior (mais parecida com o protótipo) */
+    gap: 56px;
     align-items: center;
 }
 
-.audience-image {
-    border-radius: 24px;
-    overflow: hidden;
-    max-height: 260px;
+.audience-image{
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;           /* se quiser mais “alto”, troque para: 3 / 2 */
 }
 
-.audience-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* 🔑 CORREÇÃO PRINCIPAL */
-    display: block;
+.audience-image img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;        /* se precisar, teste: center 35% */
 }
 
 .audience-text h2 {
@@ -471,7 +483,7 @@ body {
 }
 
 .audience-text p {
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     line-height: 1.6;
     opacity: 0.9;
 }
@@ -497,7 +509,6 @@ body {
     padding: 46px 52px;
     display: grid;
     grid-template-columns: 1fr 1.2fr;
-    gap: 46px;
     color: var(--white);
 }
 
@@ -511,7 +522,8 @@ body {
 .contact-left p {
     color: var(--white-85);
     line-height: 1.6;
-    margin-bottom: 28px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 
 .contact-icons {
@@ -520,10 +532,8 @@ body {
 }
 
 .contact-icon {
-    width: 46px;
+    width: 60px;
     height: 46px;
-    border-radius: 999px;
-    border: 1px solid var(--white-55);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -531,8 +541,8 @@ body {
 }
 
 .contact-icon img {
-    width: 22px;
-    height: 22px;
+    width: 50px;
+    height: 50px;
     filter: brightness(0) invert(1);
     opacity: 0.9;
 }
@@ -639,7 +649,7 @@ body {
     }
 
     .wwd-pills {
-        justify-content: flex-start;
+        justify-content: center;
     }
 
     .wwd-pill {
@@ -747,9 +757,7 @@ body {
         text-align: center;
     }
 
-    .wwd-row {
-        gap: 18px;
-    }
+
 
     .wwd-main-card {
         padding: 28px 28px;
