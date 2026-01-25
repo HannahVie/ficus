@@ -2,6 +2,22 @@
   background-image: url('/assets/images/architect-engineer-design-working-blueprint-planning-concept-construction-concept-selective-focus.jpg');
   background-size: cover;
   background-position: center;
+  position: relative;
+  isolation: isolate; /* garante que o overlay não “vaze” */
+}
+
+.pagina-destaque--servicos::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45); /* ajuste: 0.35 a 0.60 */
+  z-index: 0;
+}
+
+/* garante que o conteúdo fique acima do overlay */
+.pagina-destaque--servicos > *{
+  position: relative;
+  z-index: 1;
 }
 
 .servicos-lista{

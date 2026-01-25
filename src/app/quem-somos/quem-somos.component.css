@@ -1,20 +1,21 @@
 .pagina-destaque--quem-somos {
   position: relative;
   overflow: hidden;
-}
-
-.pagina-destaque--quem-somos::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('/assets/images/architecture-consulting-hands-business-people-blueprint-paperwork-floor-plan-building-project-civil-engineering-development-teamwork-with-creative-design-office-with-ideas.jpg');
+  background-image: url('/assets/images/quem-somos.jpg');
   background-size: cover;
   background-position: center;
-  filter: grayscale(100%);
+}
+
+.pagina-destaque--quem-somos::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45); /* ajuste: 0.35 a 0.60 */
   z-index: 0;
 }
 
-.pagina-destaque--quem-somos>* {
+/* garante que o conteúdo fique acima do overlay */
+.pagina-destaque--quem-somos > *{
   position: relative;
   z-index: 1;
 }

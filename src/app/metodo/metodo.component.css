@@ -1,7 +1,23 @@
 .pagina-destaque--metodo{
-  background-image: url('/assets/images/sunlight-falling-table-home.jpg');
+  background-image: url('/assets/images/processo.jpg');
   background-size: cover;
   background-position: center;
+  position: relative;
+  isolation: isolate; /* garante que o overlay não “vaze” */
+}
+
+.pagina-destaque--metodo::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45); /* ajuste: 0.35 a 0.60 */
+  z-index: 0;
+}
+
+/* garante que o conteúdo fique acima do overlay */
+.pagina-destaque--metodo > *{
+  position: relative;
+  z-index: 1;
 }
 
 .metodo-linha{
