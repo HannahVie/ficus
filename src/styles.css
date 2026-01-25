@@ -69,35 +69,45 @@ body {
 /* =======================
    PÁGINAS
 ======================= */
-.pagina-destaque{
-    background: var(--brand-black);
-    color: var(--white);
-    padding: 140px 0 80px;
-}
 
-.pagina-destaque-conteudo{
+.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 32px;
 }
 
-.pagina-destaque h1{
+
+.pagina-destaque {
+    background: var(--brand-black);
+    color: var(--white);
+    padding: 200px 0 80px;
+    height: 70vh;
+
+}
+
+.pagina-destaque-conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+}
+
+.pagina-destaque h1 {
     font-size: 2.6rem;
     font-weight: 600;
     margin-bottom: 10px;
 }
 
-.pagina-destaque p{
+.pagina-destaque p {
     color: var(--white-80);
 }
 
-.pagina-conteudo{
+.pagina-conteudo {
     background: var(--off-white);
     color: var(--text-dark);
     padding: 70px 0;
 }
 
-.pagina-container{
+.pagina-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 32px;
@@ -109,11 +119,11 @@ body {
 ======================= */
 .destaque {
     position: relative;
-    height: 100vh;
+    height: 70vh;
     background-image: url('/assets/images/hero1.jpg');
     background-size: cover;
     background-position: center;
-    display: flex;
+    display: block;
     align-items: center;
 }
 
@@ -128,14 +138,17 @@ body {
 
 .destaque-content {
     position: relative;
-    max-width: 900px;
-    padding: 0 80px;
+    max-width: 720px;
+    margin: 0;
+    text-align: left;
+    padding-top: 100px;
 }
 
 .destaque h1 {
     font-size: 3.5rem;
     line-height: 1.1;
     font-weight: 400;
+    padding-top: 100px;
 }
 
 .destaque h1 span {
@@ -466,157 +479,156 @@ body {
 /* =======================
    CONTATO
 ======================= */
-.contact{
-  background: var(--off-white);
-  padding: 80px 0 110px;
-  color: var(--text-dark);
+.contact {
+    background: var(--off-white);
+    padding: 80px 0 0px;
+    color: var(--text-dark);
 }
 
-.contact-container{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 32px;
+.contact-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
 }
 
-.contact-card{
-  background: var(--brand-wine);
-  border-radius: 28px;
-  padding: 46px 52px;
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 46px;
-  color: var(--white);
+.contact-card {
+    background: var(--brand-wine);
+    border-radius: 28px;
+    padding: 46px 52px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 46px;
+    color: var(--white);
 }
 
-.contact-left h2{
-  font-size: 2.4rem;
-  line-height: 1.05;
-  font-weight: 500;
-  margin-bottom: 18px;
+.contact-left h2 {
+    font-size: 2.4rem;
+    line-height: 1.05;
+    font-weight: 500;
+    margin-bottom: 18px;
 }
 
-.contact-left p{
-  color: var(--white-85);
-  line-height: 1.6;
-  margin-bottom: 28px;
+.contact-left p {
+    color: var(--white-85);
+    line-height: 1.6;
+    margin-bottom: 28px;
 }
 
-.contact-icons{
-  display: flex;
-  gap: 14px;
+.contact-icons {
+    display: flex;
+    gap: 14px;
 }
 
-.contact-icon{
-  width: 46px;
-  height: 46px;
-  border-radius: 999px;
-  border: 1px solid var(--white-55);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
+.contact-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    border: 1px solid var(--white-55);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
 }
 
-.contact-icon img{
-  width: 22px;
-  height: 22px;
-  filter: brightness(0) invert(1);
-  opacity: 0.9;
+.contact-icon img {
+    width: 22px;
+    height: 22px;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
 }
 
-.contact-form{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
 }
 
-.contact-form label span{
-  display: block;
-  font-size: 0.85rem;
-  color: var(--white-85);
-  margin-bottom: 6px;
+.contact-form label span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--white-85);
+    margin-bottom: 6px;
 }
 
-.field{
-  position: relative;
+.field {
+    position: relative;
 }
 
-.field-hint{
-  position: absolute;
-  left: 12px;
-  top: 100%;
-  margin-top: 6px;
-  background: var(--brand-black);
-  color: var(--white);
-  border: 1px solid var(--white-25);
-  padding: 6px 10px;
-  border-radius: 10px;
-  font-size: 0.72rem;
-  white-space: nowrap;
-  z-index: 2;
-  box-shadow: 0 8px 18px var(--black-35);
+.field-hint {
+    position: absolute;
+    left: 12px;
+    top: 100%;
+    margin-top: 6px;
+    background: var(--brand-black);
+    color: var(--white);
+    border: 1px solid var(--white-25);
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-size: 0.72rem;
+    white-space: nowrap;
+    z-index: 2;
+    box-shadow: 0 8px 18px var(--black-35);
 }
 
-.field-hint::after{
-  content: '';
-  position: absolute;
-  bottom: 100%;
-  left: 12px;
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-bottom: 6px solid var(--brand-black);
+.field-hint::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 12px;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--brand-black);
 }
 
-.contact-full .field-hint{
-  left: 12px;
+.contact-full .field-hint {
+    left: 12px;
 }
 
 .contact-form input,
-.contact-form textarea{
-  width: 100%;
-  border-radius: 999px;
-  border: 1px solid var(--white-35);
-  background: var(--white-06);
-  color: var(--white);
-  padding: 12px 14px;
-  outline: none;
+.contact-form textarea {
+    width: 100%;
+    border-radius: 999px;
+    border: 1px solid var(--white-35);
+    background: var(--white-06);
+    color: var(--white);
+    padding: 12px 14px;
+    outline: none;
 }
 
-.contact-form textarea{
-  border-radius: 18px;
-  resize: vertical;
-  min-height: 110px;
+.contact-form textarea {
+    border-radius: 18px;
+    resize: vertical;
+    min-height: 110px;
 }
 
-.contact-actions{
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 6px;
+.contact-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 6px;
 }
 
-.contact-btn{
-  background: transparent;
-  color: var(--white);
-  border: 1px solid var(--white-55);
-  border-radius: 999px;
-  padding: 10px 28px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s ease;
+.contact-btn {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--white-55);
+    border-radius: 999px;
+    padding: 10px 28px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s ease;
 }
 
-.contact-btn:hover{
-  background: var(--white);
-  color: var(--text-dark);
+.contact-btn:hover {
+    background: var(--white);
+    color: var(--text-dark);
 }
 
-.contact-btn:disabled{
-  opacity: 0.6;
-  cursor: not-allowed;
+.contact-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
 }
-
 
 /* =======================
    RESPONSIVO
@@ -663,123 +675,137 @@ body {
         height: 190px;
     }
 
-    .destaque-content{
+    .destaque-content {
         padding: 0 48px;
     }
 
-    .destaque h1{
+    .destaque h1 {
         font-size: 3rem;
     }
 
-    .footer-card{
+    .footer-card {
         grid-template-columns: 1fr;
         padding: 32px 28px;
         border-radius: 34px;
         text-align: center;
     }
 
-    .footer-logo{
+    .footer-top-wrapper {
+        max-width: 900px;
+        /* antes 980px → mais elegante */
         margin: 0 auto;
     }
 
-    .footer-icons{
+    .footer-top {
+        display: grid;
+        grid-template-columns: 200px 1fr 1fr;
+        gap: 48px;
+        align-items: start;
+    }
+
+
+    .footer-logo {
+        margin: 0 auto;
+    }
+
+    .footer-icons {
         justify-content: center;
     }
 
-    .footer-bottom{
+    .footer-bottom {
         flex-direction: column;
         text-align: center;
     }
 }
 
 @media (max-width: 720px) {
-    :root{
+    :root {
         --header-height: 96px;
     }
 
-    .destaque{
+    .destaque {
         height: auto;
         min-height: 70vh;
         padding: 120px 0 60px;
     }
 
-    .destaque-content{
+    .destaque-content {
         padding: 0 28px;
     }
 
-    .destaque h1{
+    .destaque h1 {
         font-size: 2.4rem;
     }
 
-    .destaque-botoes{
+    .destaque-botoes {
         flex-direction: column;
         align-items: flex-start;
     }
 
-    .btn{
+    .btn {
         width: 100%;
         text-align: center;
     }
 
-    .wwd-row{
+    .wwd-row {
         gap: 18px;
     }
 
-    .wwd-main-card{
+    .wwd-main-card {
         padding: 28px 28px;
     }
 
-    .wwd-pill{
+    .wwd-pill {
         height: 64px;
     }
 
-    .hww-grid{
+    .hww-grid {
         grid-template-columns: 1fr;
     }
 
-    .hww-card{
+    .hww-card {
         height: 200px;
     }
 
-    .audience{
+    .audience {
         padding: 70px 0;
     }
 
-    .audience-card{
+    .audience-card {
         gap: 22px;
     }
 
-    .audience-image{
+    .audience-image {
         max-height: 200px;
     }
 
-    .contact{
+    .contact {
         padding: 70px 0 90px;
     }
 
-    .contact-card{
+    .contact-card {
         padding: 28px 24px;
     }
 }
 
 
 @media (max-width: 520px) {
-    .field-hint{
+    .field-hint {
         left: 0;
         right: 0;
         width: 100%;
         white-space: normal;
     }
 
-    .field-hint::after{
+    .field-hint::after {
         left: 16px;
     }
 
-    .contact-card{
+    .contact-card {
         padding: 28px 22px;
     }
 
-    .contact-left h2{
+    .contact-left h2 {
         font-size: 2rem;
     }
 
@@ -799,13 +825,13 @@ body {
         font-size: 2rem;
     }
 
-    .contact-card{
+    .contact-card {
         grid-template-columns: 1fr;
         gap: 28px;
         padding: 36px 32px;
     }
 
-    .contact-actions{
+    .contact-actions {
         justify-content: flex-start;
     }
 }

@@ -2,15 +2,17 @@
 <section class="destaque">
   <div class="destaque-overlay"></div>
 
-  <div class="destaque-content">
-    <h1>
-      Reforma que valoriza.<br />
-      Fachada que <span>IMPRESSIONA.</span>
-    </h1>
+  <div class="container">
+    <div class="destaque-content">
+      <h1>
+        Reforma que valoriza.<br />
+        Fachada que <span>IMPRESSIONA.</span>
+      </h1>
 
-    <div class="destaque-botoes">
-      <a routerLink="/contato" class="btn btn-outline">Solicitar orçamento</a>
-      <a [routerLink]="['/home']" fragment="contato" class="btn btn-outline">Falar com a Ficus</a>
+      <div class="destaque-botoes">
+        <a routerLink="/contato" class="btn btn-outline">Solicitar orçamento</a>
+        <a [routerLink]="['/home']" fragment="contato" class="btn btn-outline">Falar com a Ficus</a>
+      </div>
     </div>
   </div>
 </section>
@@ -36,14 +38,14 @@
       <!-- Pílulas verticais -->
       <div class="wwd-pills">
         @for (servico of servicos; track servico.id) {
-          @if (servico.id !== servicoAtivoId) {
-            <button class="wwd-pill" type="button" (click)="setServicoAtivo(servico.id)">
-              <span class="wwd-pill-icon" aria-hidden="true">
-                <img [src]="servico.icon" alt="" />
-              </span>
-              <span class="wwd-pill-text">{{ servico.title }}</span>
-            </button>
-          }
+        @if (servico.id !== servicoAtivoId) {
+        <button class="wwd-pill" type="button" (click)="setServicoAtivo(servico.id)">
+          <span class="wwd-pill-icon" aria-hidden="true">
+            <img [src]="servico.icon" alt="" />
+          </span>
+          <span class="wwd-pill-text">{{ servico.title }}</span>
+        </button>
+        }
         }
       </div>
     </div>
@@ -145,73 +147,40 @@
       <form class="contact-form" #contactForm="ngForm" novalidate>
         <label class="field">
           <span>Nome</span>
-          <input
-            type="text"
-            name="nome"
-            [(ngModel)]="nome"
-            required
-            minlength="3"
-            pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$"
-            (ngModelChange)="onNameInput($event, nomeModel)"
-            (blur)="nomeModel.control.markAsTouched()"
-            autocomplete="name"
-            #nomeModel="ngModel"
-          />
+          <input type="text" name="nome" [(ngModel)]="nome" required minlength="3" pattern="^[A-Za-zÀ-ÖØ-öø-ÿ' -]+$"
+            (ngModelChange)="onNameInput($event, nomeModel)" (blur)="nomeModel.control.markAsTouched()"
+            autocomplete="name" #nomeModel="ngModel" />
           @if (nomeModel.invalid && nomeModel.touched) {
-            <span class="field-hint">Informe um nome válido (apenas letras).</span>
+          <span class="field-hint">Informe um nome válido (apenas letras).</span>
           }
         </label>
 
         <label class="field">
           <span>E-mail</span>
-          <input
-            type="email"
-            name="email"
-            [(ngModel)]="email"
-            required
-            pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z]{2,}$"
-            (blur)="emailModel.control.markAsTouched()"
-            autocomplete="email"
-            #emailModel="ngModel"
-          />
+          <input type="email" name="email" [(ngModel)]="email" required
+            pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+[.][A-Za-z]{2,}$" (blur)="emailModel.control.markAsTouched()"
+            autocomplete="email" #emailModel="ngModel" />
           @if (emailModel.invalid && emailModel.touched) {
-            <span class="field-hint">Informe um e-mail válido.</span>
+          <span class="field-hint">Informe um e-mail válido.</span>
           }
         </label>
 
         <label class="field">
           <span>Telefone</span>
-          <input
-            type="tel"
-            name="telefone"
-            [(ngModel)]="telefone"
-            required
-            inputmode="tel"
-            maxlength="15"
-            pattern="[(]?[0-9]{2}[)]? ?[0-9]{4,5}-?[0-9]{4}"
-            (ngModelChange)="onPhoneInput($event, telefoneModel)"
-            (blur)="telefoneModel.control.markAsTouched()"
-            autocomplete="tel"
-            #telefoneModel="ngModel"
-          />
+          <input type="tel" name="telefone" [(ngModel)]="telefone" required inputmode="tel" maxlength="15"
+            pattern="[(]?[0-9]{2}[)]? ?[0-9]{4,5}-?[0-9]{4}" (ngModelChange)="onPhoneInput($event, telefoneModel)"
+            (blur)="telefoneModel.control.markAsTouched()" autocomplete="tel" #telefoneModel="ngModel" />
           @if (telefoneModel.invalid && telefoneModel.touched) {
-            <span class="field-hint">Informe um telefone válido.</span>
+          <span class="field-hint">Informe um telefone válido.</span>
           }
         </label>
 
         <label class="contact-full field">
           <span>Mensagem</span>
-          <textarea
-            name="mensagem"
-            rows="4"
-            [(ngModel)]="mensagem"
-            required
-            minlength="10"
-            (blur)="mensagemModel.control.markAsTouched()"
-            #mensagemModel="ngModel"
-          ></textarea>
+          <textarea name="mensagem" rows="4" [(ngModel)]="mensagem" required minlength="10"
+            (blur)="mensagemModel.control.markAsTouched()" #mensagemModel="ngModel"></textarea>
           @if (mensagemModel.invalid && mensagemModel.touched) {
-            <span class="field-hint">Mensagem muito curta.</span>
+          <span class="field-hint">Mensagem muito curta.</span>
           }
         </label>
 
