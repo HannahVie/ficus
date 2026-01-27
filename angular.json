@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "ficus-landing-page": {
+    "ficus": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -57,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ficus-landing-page:build:production"
+              "buildTarget": "ficus:build:production"
             },
             "development": {
-              "buildTarget": "ficus-landing-page:build:development"
+              "buildTarget": "ficus:build:development"
             }
           },
           "defaultConfiguration": "development"
