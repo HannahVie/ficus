@@ -32,4 +32,4 @@ jobs:
           password: ${{ secrets.SFTP_PASSWORD }}
           port: ${{ secrets.SFTP_PORT }}
           server-dir: ${{ secrets.SFTP_DIR }}
-          local-dir: dist/ficus/
+          local-dir: dist/ficus/browser/
