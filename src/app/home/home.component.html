@@ -25,29 +25,21 @@
     </header>
 
     <div class="wwd-row">
-      <!-- Card grande -->
-      <article class="wwd-main-card">
-        <div class="wwd-main-icon" aria-hidden="true">
-          <img [src]="getServicoAtivo().icon" alt="" />
-        </div>
-
-        <h3>{{ getServicoAtivo().title }}</h3>
-        <p>{{ getServicoAtivo().description }}</p>
-      </article>
-
-      <!-- Pílulas verticais -->
-      <div class="wwd-pills">
-        @for (servico of servicos; track servico.id) {
-        @if (servico.id !== servicoAtivoId) {
-        <button class="wwd-pill" type="button" (click)="setServicoAtivo(servico.id)">
-          <span class="wwd-pill-icon" aria-hidden="true">
-            <img [src]="servico.icon" alt="" />
-          </span>
-          <span class="wwd-pill-text">{{ servico.title }}</span>
-        </button>
-        }
-        }
-      </div>
+      @for (servico of servicos; track servico.id) {
+      <button
+        class="wwd-card"
+        type="button"
+        [class.wwd-card--expandido]="servico.id === servicoAtivoId"
+        [attr.aria-pressed]="servico.id === servicoAtivoId"
+        (click)="setServicoAtivo(servico.id)"
+      >
+        <span class="wwd-card-icon" aria-hidden="true">
+          <img [src]="servico.icon" alt="" />
+        </span>
+        <span class="wwd-card-titulo">{{ servico.title }}</span>
+        <span class="wwd-card-texto">{{ servico.description }}</span>
+      </button>
+      }
     </div>
 
     <p class="wwd-footnote">

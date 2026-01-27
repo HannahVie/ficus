@@ -238,71 +238,13 @@ p {
 .wwd-row {
     display: flex;
     align-items: stretch;
-}
-
-/* Card grande */
-.wwd-main-card {
-    flex: 1 1 62%;
-    background-image: url('/assets/images/Retangulo\ aberto.png');
-    background-size: cover;
-    background-position: center;
-    border-radius: 28px;
-    padding: 34px 38px;
-    min-height: 260px;
-    position: relative;
-    overflow: hidden;
-}
-
-.wwd-main-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-}
-
-.wwd-main-icon img {
-    width: 38px;
-    height: 38px;
-    opacity: 0.9;
-}
-
-.wwd-pill-icon img,
-.wwd-main-icon img {
-    filter: brightness(0) invert(1);
-    opacity: 0.9;
-}
-
-.wwd-main-card h3 {
-    font-size: 1.35rem;
-    margin-bottom: 10px;
-    font-weight: 700;
-    color: var(--text-darker);
-}
-
-.wwd-main-card p {
-    color: var(--text-muted);
-    opacity: 0.85;
-    line-height: 1.5;
-    font-weight: 400;
-    width: 230px;
-}
-
-/* Área das pílulas */
-.wwd-pills {
-    flex: 1 1 38%;
-    display: flex;
     gap: 18px;
-    justify-content: flex-end;
 }
 
-/* Pílula vertical */
-.wwd-pill {
+.wwd-card {
     width: 80px;
     height: 300px;
-    background-image: url('/assets/images/Retangulo\ fechado.png');
+    background-image: url('/assets/images/retangulo-fechado.png');
     background-size: cover;
     background-position: center;
     border-radius: 60px;
@@ -318,37 +260,91 @@ p {
     cursor: pointer;
 }
 
-.wwd-pill-icon {
+.wwd-card:hover {
+    transform: translateY(-2px);
+}
+
+.wwd-card-icon {
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 25px;
     left: 50%;
     transform: translateX(-50%);
-    width: 30px;
-    height: 30px;
     opacity: 0.85;
 }
 
-.wwd-pill-icon img {
+.wwd-card-icon img {
     width: 30px;
     height: 30px;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
 }
 
-.wwd-pill-text {
+.wwd-card-titulo {
+    display: block;
     writing-mode: vertical-rl;
-    /* texto vertical */
     text-orientation: mixed;
     font-weight: 700;
     letter-spacing: 0.02em;
     margin-top: 30px;
-    font-size: 1.0rem;
-    /* empurra abaixo do ícone */
+    font-size: 1rem;
+    color: var(--text-dark);
 }
 
-/* Hover suave */
-.wwd-pill:hover {
-    filter: brightness(0.98);
-    transform: translateY(-2px);
-    transition: 0.2s ease;
+.wwd-card-texto {
+    display: none;
+    font-size: 1.2rem;
+}
+
+.wwd-card--expandido {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    flex: 1 1 62%;
+    background-image: url('/assets/images/retangulo-aberto.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 28px;
+    padding: 34px 38px;
+    min-height: 260px;
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+}
+
+.wwd-card--expandido .wwd-card-icon {
+    width: 46px;
+    height: 46px;
+    position: static;
+    transform: none;
+    opacity: 0.9;
+    margin-bottom: 18px;
+}
+
+.wwd-card--expandido .wwd-card-icon img {
+    width: 65px;
+    height: 65px;
+}
+
+.wwd-card--expandido .wwd-card-titulo {
+    writing-mode: horizontal-tb;
+    margin-top: 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-darker);
+    margin-bottom: 10px;
+    text-align: left;
+    display: block;
+}
+
+.wwd-card--expandido .wwd-card-texto {
+    display: block;
+    color: var(--text-muted);
+    opacity: 0.85;
+    line-height: 1.5;
+    font-weight: 400;
+    width: 230px;
 }
 
 /* Texto e CTA */
@@ -666,33 +662,36 @@ p {
         flex-direction: column;
     }
 
-    .wwd-pills {
-        justify-content: center;
-    }
-
-    .wwd-pill {
+    .wwd-card {
         width: 100%;
         height: 70px;
         border-radius: 22px;
         padding: 14px 18px;
-    }
-
-    .wwd-pill-icon {
-        position: static;
-        transform: none;
-        margin-right: 12px;
-    }
-
-    .wwd-pill {
-        display: flex;
-        gap: 12px;
+        align-items: center;
+        flex-direction: row;
         justify-content: flex-start;
     }
 
-    .wwd-pill-text {
-        writing-mode: horizontal-tb;
+    .wwd-card-icon {
+        position: static;
         transform: none;
+        margin-right: 12px;
+        opacity: 0.85;
+    }
+
+    .wwd-card-titulo {
+        writing-mode: horizontal-tb;
         margin-top: 0;
+    }
+
+    .wwd-card--expandido {
+        height: auto;
+        align-items: flex-start;
+        padding: 28px 26px;
+    }
+
+    .wwd-card--expandido .wwd-card-texto {
+        display: block;
     }
 
     .hww-grid {

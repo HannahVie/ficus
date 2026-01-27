@@ -80,6 +80,9 @@ export class HomeComponent {
   }
 
   setServicoAtivo(id: string): void {
+    if (this.servicoAtivoId === id) {
+      return;
+    }
     this.servicoAtivoId = id;
   }
 
