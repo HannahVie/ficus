@@ -230,7 +230,7 @@ p {
 }
 
 .wwd-header p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--text-mid);
     margin-bottom: 40px;
 }
@@ -353,7 +353,6 @@ p {
     color: var(--text-light);
     line-height: 1.6;
     max-width: 920px;
-    font-style: italic;
     font-size: 1rem;
 }
 
