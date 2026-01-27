@@ -88,7 +88,7 @@ p {
 .pagina-destaque {
     background: var(--brand-black);
     color: var(--white);
-    padding: 200px 0 80px;
+    padding: 165px 0 80px;
     height: 70vh;
 
 }
