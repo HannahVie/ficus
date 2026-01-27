@@ -25,12 +25,11 @@ jobs:
         run: npm run build
 
       - name: Deploy via SFTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: appleboy/scp-action@v0.1.7
         with:
-          server: ${{ secrets.SFTP_SERVER }}
+          host: ${{ secrets.SFTP_SERVER }}
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
-          protocol: sftp
           port: ${{ secrets.SFTP_PORT }}
-          server-dir: ${{ secrets.SFTP_DIR }}
-          local-dir: dist/ficus-landing-page/
+          source: "dist/ficus-landing-page/*"
+          target: ${{ secrets.SFTP_DIR }}
