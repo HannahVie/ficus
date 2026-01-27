@@ -1,0 +1,73 @@
+.erro-pagina {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--white);
+  padding: 0;
+}
+
+.erro-conteudo {
+  max-width: 720px;
+  text-align: center;
+  padding: 35px 24px;
+  color: var(--brand-fig-green);
+}
+
+.erro-logo img {
+  width: min(260px, 70vw);
+  margin-bottom: 24px;
+}
+
+.erro-codigo {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--brand-fig-green);
+}
+
+.erro-titulo {
+  font-family: 'Inter Tight', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.erro-mensagem {
+  font-size: 1.05rem;
+  opacity: 0.85;
+  margin-bottom: 28px;
+}
+
+.erro-acoes {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.erro-botao {
+  border: 1px solid var(--brand-fig-green);
+  color: var(--brand-fig-green);
+  background: transparent;
+}
+
+.erro-botao:hover {
+  background: var(--brand-fig-green);
+  color: var(--white);
+}
+
+@media (max-width: 600px) {
+  .erro-conteudo {
+    padding: 72px 20px;
+  }
+
+  .erro-codigo {
+    font-size: 2.4rem;
+  }
+
+  .erro-titulo {
+    font-size: 1.6rem;
+  }
+}
