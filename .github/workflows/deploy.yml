@@ -33,3 +33,4 @@ jobs:
           port: ${{ secrets.SFTP_PORT }}
           server-dir: ${{ secrets.SFTP_DIR }}
           local-dir: dist/ficus/browser/
+          dangerous-clean-slate: true
