@@ -31,5 +31,5 @@ jobs:
           username: ${{ secrets.SFTP_USERNAME }}
           password: ${{ secrets.SFTP_PASSWORD }}
           port: ${{ secrets.SFTP_PORT }}
-          source: "dist/ficus-landing-page/*"
+          source: "dist/ficus/*"
           target: ${{ secrets.SFTP_DIR }}
