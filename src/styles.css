@@ -680,11 +680,16 @@ p {
     .o-que-fazemos-card {
         width: 100%;
         height: 70px;
+        flex: none;
         border-radius: 22px;
         padding: 14px 18px;
         align-items: center;
-        flex-direction: row;
         justify-content: flex-start;
+        transition: border-radius 0.3s ease, padding 0.3s ease;
+    }
+
+    .o-que-fazemos-card:hover {
+        transform: none;
     }
 
     .o-que-fazemos-card-icone {
@@ -701,12 +706,21 @@ p {
 
     .o-que-fazemos-card--expandido {
         height: auto;
+        width: 100%;
+        flex: none;
         align-items: flex-start;
         padding: 28px 26px;
     }
 
     .o-que-fazemos-card--expandido .o-que-fazemos-card-texto {
         display: block;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .o-que-fazemos-card--expandido .o-que-fazemos-card-titulo {
+        font-size: 1.2rem;
+        line-height: 1.3;
     }
 
     .como-trabalhamos-grade {
@@ -793,10 +807,12 @@ p {
 
     .como-trabalhamos-grade {
         grid-template-columns: 1fr;
+        gap: 18px;
     }
 
     .como-trabalhamos-card {
         height: 200px;
+        width: 100%;
     }
 
     .audience {
@@ -822,6 +838,10 @@ p {
 
 
 @media (max-width: 520px) {
+    .contact-container {
+        padding: 0 20px;
+    }
+
     .field-hint {
         left: 0;
         right: 0;
@@ -881,9 +901,46 @@ p {
 @media (max-width: 520px) {
     .como-trabalhamos-grade {
         grid-template-columns: 1fr;
+        gap: 16px;
     }
 
     .como-trabalhamos-card {
         height: 200px;
+    }
+
+    .o-que-fazemos-card {
+        height: auto;
+        min-height: 64px;
+    }
+
+    .o-que-fazemos-card-icone {
+        width: 24px;
+        height: 24px;
+    }
+
+    .o-que-fazemos-card-icone img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .o-que-fazemos-card-texto {
+        font-size: 0.95rem;
+    }
+
+    .o-que-fazemos-card--expandido {
+        padding: 22px 20px;
+    }
+
+    .o-que-fazemos-card--expandido .o-que-fazemos-card-icone {
+        margin-bottom: 2px;
+    }
+
+    .o-que-fazemos-card--expandido .o-que-fazemos-card-icone img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .o-que-fazemos-card--expandido .o-que-fazemos-card-titulo {
+        font-size: 1.1rem;
     }
 }

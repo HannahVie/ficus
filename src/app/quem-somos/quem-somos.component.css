@@ -136,7 +136,34 @@
   }
 
   .quem-somos-card {
-    padding: 20px;
-    min-height: 220px;
+    padding: 28px 22px;
+    min-height: 240px;
+  }
+
+  .quem-somos-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .quem-somos-card p {
+    font-size: 1.1rem;
+  }
+
+  .quem-somos-lista {
+    font-size: 1.1rem;
+    margin-inline: 0;
+  }
+
+  .quem-somos-lista strong {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .quem-somos-grid {
+    padding: 0 20px;
+  }
+
+  .quem-somos-card {
+    width: 100%;
   }
 }
