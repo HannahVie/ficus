@@ -22,20 +22,21 @@
 
 .servicos-lista{
   display: grid;
-  gap: 24px;
+  gap: 32px;
 }
 
 .servico-card{
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 24px;
-  padding: 22px;
-  border-radius: 20px;
+  grid-template-columns: 300px 1fr;
+  gap: 28px;
+  border-radius: 28px;
   align-items: center;
+  overflow: hidden;
+  min-height: 300px;
 }
 
 .servico-card--invertido{
-  grid-template-columns: 1fr 180px;
+  grid-template-columns: 1fr 300px;
 }
 
 .servico-card--verde{
@@ -55,20 +56,30 @@
 
 .servico-imagem{
   width: 100%;
-  aspect-ratio: 1 / 1;
-  border-radius: 16px;
+  height: 100%;
+  border-radius: 0;
   background: var(--brand-black);
 }
 
+.servico-texto{
+  padding: 44px 48px;
+}
+
 .servico-texto h2{
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.servico-texto p{
   font-size: 1.2rem;
+  line-height: 1.5;
 }
 
 .servico-subtexto{
   opacity: 0.9;
-  font-size: 0.95rem;
-  margin-top: 8px;
+  font-size: 1rem !important;
+  margin-top: 10px;
 }
 
 @media (max-width: 720px){
@@ -78,6 +89,14 @@
   }
 
   .servico-imagem{
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 10;
+  }
+
+  .servico-texto{
+    padding: 30px 26px;
+  }
+
+  .servico-texto h2{
+    font-size: 1.35rem;
   }
 }
