@@ -17,70 +17,70 @@
   </div>
 </section>
 
-<section class="what-we-do" id="servicos">
-  <div class="wwd-container">
-    <header class="wwd-header">
+<section class="secao-o-que-fazemos" id="servicos">
+  <div class="o-que-fazemos-container">
+    <header class="o-que-fazemos-cabecalho">
       <h2>O que fazemos</h2>
       <p>Soluções <strong>completas</strong> em reformas e fachadas</p>
     </header>
 
-    <div class="wwd-row">
+    <div class="o-que-fazemos-linha">
       @for (servico of servicos; track servico.id) {
       <button
-        class="wwd-card"
+        class="o-que-fazemos-card"
         type="button"
-        [class.wwd-card--expandido]="servico.id === servicoAtivoId"
+        [class.o-que-fazemos-card--expandido]="servico.id === servicoAtivoId"
         [attr.aria-pressed]="servico.id === servicoAtivoId"
         (click)="setServicoAtivo(servico.id)"
       >
-        <span class="wwd-card-icon" aria-hidden="true">
+        <span class="o-que-fazemos-card-icone" aria-hidden="true">
           <img [src]="servico.icon" alt="" />
         </span>
-        <span class="wwd-card-titulo">{{ servico.title }}</span>
-        <span class="wwd-card-texto">{{ servico.description }}</span>
+        <span class="o-que-fazemos-card-titulo">{{ servico.title }}</span>
+        <span class="o-que-fazemos-card-texto">{{ servico.description }}</span>
       </button>
       }
     </div>
 
-    <p class="wwd-footnote">
+    <p class="o-que-fazemos-nota">
       Cada etapa é planejada e executada com rigor técnico para garantir
       segurança, durabilidade e estética.
     </p>
 
-    <a class="wwd-cta" routerLink="/servicos">Conhecer todos os serviços</a>
+    <a class="o-que-fazemos-cta" routerLink="/servicos">Conhecer todos os serviços</a>
   </div>
 </section>
 
-<section class="how-we-work" id="metodo">
-  <div class="hww-container">
-    <header class="hww-header">
+<section class="secao-como-trabalhamos" id="metodo">
+  <div class="como-trabalhamos-container">
+    <header class="como-trabalhamos-cabecalho">
       <h2>Como trabalhamos</h2>
       <p>Engenharia aplicada com ética, método e clareza</p>
     </header>
 
-    <div class="hww-grid">
-      <article class="hww-card" style="--bg:url('/assets/images/sunlight-colonnade.jpg')">
-        <div class="hww-overlay"></div>
+    <div class="como-trabalhamos-grade">
+      <article class="como-trabalhamos-card" style="--bg:url('/assets/images/sunlight-colonnade.jpg')">
+        <div class="como-trabalhamos-overlay"></div>
         <h3>Planejamento técnico detalhado</h3>
       </article>
 
-      <article class="hww-card" style="--bg:url('/assets/images/low-angle-view-man-building.jpg')">
-        <div class="hww-overlay"></div>
+      <article class="como-trabalhamos-card" style="--bg:url('/assets/images/low-angle-view-man-building.jpg')">
+        <div class="como-trabalhamos-overlay"></div>
         <h3>Métodos padronizados e execução consistente</h3>
       </article>
 
-      <article class="hww-card" style="--bg:url('/assets/images/light-falling-wooden-abstract-design.jpg')">
-        <div class="hww-overlay"></div>
+      <article class="como-trabalhamos-card" style="--bg:url('/assets/images/light-falling-wooden-abstract-design.jpg')">
+        <div class="como-trabalhamos-overlay"></div>
         <h3>Materiais adequados para cada solução</h3>
       </article>
 
-      <article class="hww-card" style="--bg:url('/assets/images/light-magic.jpg')">
-        <div class="hww-overlay"></div>
+      <article class="como-trabalhamos-card" style="--bg:url('/assets/images/light-magic.jpg')">
+        <div class="como-trabalhamos-overlay"></div>
         <h3>Comunicação transparente em todas as etapas</h3>
       </article>
     </div>
 
-    <p class="hww-footnote">
+    <p class="como-trabalhamos-nota">
       Compromisso, qualidade e segurança conduzem cada decisão.
     </p>
   </div>
