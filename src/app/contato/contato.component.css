@@ -106,3 +106,13 @@
     justify-content: flex-start;
   }
 }
+
+@media (max-width: 520px){
+  .contato-pagina{
+    padding: 0 20px;
+  }
+
+  .contato-card{
+    width: 100%;
+  }
+}
