@@ -27,42 +27,113 @@
 
 .metodo-passos{
   display: grid;
-  gap: 20px;
+  gap: 36px;
   background: var(--brand-light-grey);
-  padding: 24px;
-  border-radius: 20px;
+  padding: 48px 44px;
+  border-radius: 26px;
+  position: relative;
+  --metodo-padding-x: 44px;
+  --metodo-padding-y: 48px;
+  --metodo-icone: 84px;
+}
+
+.metodo-passos::before{
+  content: "";
+  position: absolute;
+  top: calc(var(--metodo-padding-y) + (var(--metodo-icone) / 2));
+  bottom: calc(var(--metodo-padding-y) + (var(--metodo-icone) / 2));
+  left: calc(var(--metodo-padding-x) + (var(--metodo-icone) / 2));
+  width: 2px;
+  background: var(--brand-wine);
 }
 
 .metodo-passo{
   display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 16px;
+  grid-template-columns: 84px 1fr;
+  gap: 22px;
   align-items: center;
+  position: relative;
 }
 
 .metodo-icone{
-  width: 64px;
-  height: 64px;
+  width: 84px;
+  height: 84px;
   border-radius: 999px;
   border: 2px solid var(--brand-wine);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-light-grey);
+  z-index: 1;
+}
+
+.metodo-icone img{
+  width: 42px;
+  height: 42px;
+  filter: invert(20%) sepia(26%) saturate(531%) hue-rotate(315deg) brightness(85%) contrast(92%);
+}
+
+.metodo-passo h2{
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--brand-wine);
+  margin-bottom: 6px;
+}
+
+.metodo-passo p{
+  font-size: 1.05rem;
+  color: var(--text-mid);
+  line-height: 1.45;
 }
 
 .metodo-chamada{
   background: var(--brand-wine);
   color: var(--white);
-  padding: 16px 20px;
-  border-radius: 999px;
+  padding: 18px 28px;
+  border-radius: 26px;
   text-align: center;
   font-weight: 600;
+  max-width: 1100px;
+  width: calc(100% + 120px);
+  margin: -40px auto 0;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 @media (max-width: 720px){
+  .metodo-passos{
+    padding: 36px 28px;
+    --metodo-padding-x: 28px;
+    --metodo-padding-y: 36px;
+    --metodo-icone: 64px;
+  }
+
+  .metodo-passos::before{
+    left: calc(var(--metodo-padding-x) + (var(--metodo-icone) / 2));
+  }
+
   .metodo-passo{
-    grid-template-columns: 48px 1fr;
+    grid-template-columns: 64px 1fr;
   }
 
   .metodo-icone{
-    width: 48px;
-    height: 48px;
+    width: 64px;
+    height: 64px;
+  }
+
+  .metodo-icone img{
+    width: 32px;
+    height: 32px;
+  }
+
+  .metodo-passo h2{
+    font-size: 1.25rem;
+  }
+
+  .metodo-chamada{
+    width: 100%;
+    max-width: 100%;
+    margin-top: -24px;
   }
 }
