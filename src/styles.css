@@ -323,7 +323,7 @@ p {
 }
 
 .o-que-fazemos-cabecalho p {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: var(--text-mid);
     margin-bottom: 40px;
 }
@@ -621,6 +621,25 @@ p {
     font-size: 1rem;
 }
 
+.o-que-fazemos-cta-wrap {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 60px;
+
+}
+
+@media (max-width: 720px) {
+    .o-que-fazemos-cta-wrap {
+        justify-content: center;
+        margin-right: 0;
+    }
+
+    .o-que-fazemos-cta {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
 .o-que-fazemos-cta {
     display: inline-block;
     margin-top: 16px;
@@ -632,6 +651,8 @@ p {
     cursor: pointer;
     font-weight: 600;
     font-size: 0.95rem;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 /* =======================
