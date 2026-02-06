@@ -35,6 +35,7 @@
   --metodo-padding-x: 44px;
   --metodo-padding-y: 48px;
   --metodo-icone: 84px;
+
 }
 
 .metodo-passos::before{
@@ -81,7 +82,7 @@
 }
 
 .metodo-passo p{
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   color: var(--text-mid);
   line-height: 1.45;
 }

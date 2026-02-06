@@ -1,31 +1,33 @@
-.pagina-destaque--servicos{
+.pagina-destaque--servicos {
   background-image: url('/assets/images/architect-engineer-design-working-blueprint-planning-concept-construction-concept-selective-focus.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
-  isolation: isolate; /* garante que o overlay não “vaze” */
+  isolation: isolate;
+  /* garante que o overlay não “vaze” */
 }
 
-.pagina-destaque--servicos::before{
+.pagina-destaque--servicos::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,.45); /* ajuste: 0.35 a 0.60 */
+  background: rgba(0, 0, 0, .45);
+  /* ajuste: 0.35 a 0.60 */
   z-index: 0;
 }
 
 /* garante que o conteúdo fique acima do overlay */
-.pagina-destaque--servicos > *{
+.pagina-destaque--servicos>* {
   position: relative;
   z-index: 1;
 }
 
-.servicos-lista{
+.servicos-lista {
   display: grid;
   gap: 32px;
 }
 
-.servico-card{
+.servico-card {
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 28px;
@@ -35,68 +37,93 @@
   min-height: 300px;
 }
 
-.servico-card--invertido{
+.servico-card--invertido {
   grid-template-columns: 1fr 300px;
 }
 
-.servico-card--verde{
+.servico-card--verde {
   background: var(--brand-fig-green);
   color: var(--white);
 }
 
-.servico-card--vinho{
+.servico-card--vinho {
   background: var(--brand-wine);
   color: var(--white);
 }
 
-.servico-card--roxo{
+.servico-card--roxo {
   background: var(--brand-purple);
   color: var(--white);
 }
 
-.servico-imagem{
+.servico-imagem {
   width: 100%;
   height: 100%;
   border-radius: 0;
   background: var(--brand-black);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.servico-texto{
+.servico-texto {
   padding: 44px 48px;
 }
 
-.servico-texto h2{
+.servico-texto h2 {
   margin-bottom: 10px;
   font-size: 2rem;
   font-weight: 600;
 }
 
-.servico-texto p{
+.servico-texto p {
   font-size: 1.2rem;
   line-height: 1.5;
 }
 
-.servico-subtexto{
+.servico-subtexto {
   opacity: 0.9;
   font-size: 1rem !important;
   margin-top: 10px;
 }
 
-@media (max-width: 720px){
+.servico-imagem--fachada {
+  background-image: url('/assets/images/servicos/fachadas.jpeg');
+}
+
+.servico-imagem--impermeabilizacao {
+  background-image: url('/assets/images/servicos/impermeabilizacao.jpeg');
+}
+
+.servico-imagem--hidraulica {
+  background-image: url('/assets/images/servicos/hidraulica.jpeg');
+}
+
+.servico-imagem--vidros {
+  background-image: url('/assets/images/servicos/esquadrias.jpeg');
+}
+
+.servico-imagem--revitalizacao {
+  background-image: url('/assets/images/servicos/areas.jpeg');
+}
+
+@media (max-width: 720px) {
+
   .servico-card,
-  .servico-card--invertido{
+  .servico-card--invertido {
     grid-template-columns: 1fr;
   }
 
-  .servico-imagem{
+  /* .servico-imagem {
     aspect-ratio: 16 / 10;
-  }
+    background-position: center;
+  } */
 
-  .servico-texto{
+  .servico-texto {
     padding: 30px 26px;
   }
 
-  .servico-texto h2{
+  .servico-texto h2 {
     font-size: 1.35rem;
   }
 }
