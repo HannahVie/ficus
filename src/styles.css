@@ -60,10 +60,15 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 body {
     font-family: 'Inter Tight', sans-serif;
     background-color: var(--white);
     color: var(--white);
+    overflow-x: hidden;
 }
 
 p {
@@ -89,7 +94,7 @@ p {
     background: var(--brand-black);
     color: var(--white);
     padding: 165px 0 80px;
-    min-height: 55vh;
+    min-height: 48vh;
     height: auto;
 
 }
@@ -98,6 +103,10 @@ p {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 32px;
+    min-height: calc(48vh - 165px - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .pagina-destaque h1 {
@@ -134,10 +143,42 @@ p {
     }
 }
 
+@media (max-width: 1100px) {
+    .pagina-destaque {
+        padding: 92px 0 24px;
+        min-height: 30vh;
+    }
+
+    .destaque {
+        height: 30vh;
+        min-height: 30vh;
+        padding: 80px 0 24px;
+    }
+
+    .destaque-content {
+        padding-top: 0;
+    }
+
+    .destaque h1 {
+        font-size: 2.5rem;
+        padding-top: 0;
+    }
+
+    .pagina-destaque h1 {
+        font-size: clamp(1.9rem, 3vw, 2.6rem);
+    }
+}
+
+@media (max-width: 1100px) {
+    .pagina-destaque-conteudo {
+        min-height: calc(30vh - 92px - 24px);
+    }
+}
+
 @media (max-width: 720px) {
     .pagina-destaque {
-        padding: 120px 0 60px;
-        min-height: 50vh;
+        padding: 110px 0 40px;
+        min-height: 38vh;
     }
 
     .pagina-destaque h1 {
@@ -158,7 +199,7 @@ p {
 ======================= */
 .destaque {
     position: relative;
-    height: 70vh;
+    height: 60vh;
     background-image: url('/assets/images/hero1.jpg');
     background-size: cover;
     background-position: center;
@@ -192,6 +233,27 @@ p {
 
 .destaque h1 span {
     font-weight: 800;
+}
+
+@media (max-width: 1100px) {
+    .destaque {
+        height: 30vh;
+        min-height: 30vh;
+        padding: 80px 0 24px;
+    }
+
+    .destaque-content {
+        padding-top: 0;
+        min-height: calc(30vh - 80px - 24px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .destaque h1 {
+        font-size: 2.5rem;
+        padding-top: 0;
+    }
 }
 
 /* =======================
@@ -739,19 +801,33 @@ p {
         height: auto;
         width: 100%;
         flex: none;
-        align-items: flex-start;
+        align-items: center;
         padding: 28px 26px;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+            "icon title"
+            "text text";
+        column-gap: 14px;
+        row-gap: 8px;
     }
 
     .o-que-fazemos-card--expandido .o-que-fazemos-card-texto {
         display: block;
         width: 100%;
         font-size: 1rem;
+        grid-area: text;
     }
 
     .o-que-fazemos-card--expandido .o-que-fazemos-card-titulo {
         font-size: 1.2rem;
         line-height: 1.3;
+        grid-area: title;
+    }
+
+    .o-que-fazemos-card--expandido .o-que-fazemos-card-icone {
+        grid-area: icon;
+        margin: 0;
     }
 
     .como-trabalhamos-grade {
@@ -812,8 +888,8 @@ p {
 
     .destaque {
         height: auto;
-        min-height: 70vh;
-        padding: 120px 0 60px;
+        min-height: 60vh;
+        padding: 110px 0 40px;
     }
 
     .destaque-content {

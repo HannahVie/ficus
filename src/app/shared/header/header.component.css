@@ -7,6 +7,8 @@
   z-index: 20;
   background: var(--black-35);
   backdrop-filter: blur(6px);
+  box-sizing: border-box;
+  overflow: visible;
 }
 
 .header-inner {
@@ -184,6 +186,16 @@
 
 
 @media (max-width: 720px) {
+  .logo{
+    height: 30px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .header-inner{
+    padding: 14px 24px;
+  }
+
   .logo{
     height: 30px;
   }
