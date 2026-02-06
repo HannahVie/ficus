@@ -1,64 +1,69 @@
-.pagina-destaque--contato{
+.pagina-destaque--contato {
   background-image: url('/assets/images/view-modern-futuristic-work-space-with-furniture.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
-  isolation: isolate; /* garante que o overlay não “vaze” */
+  isolation: isolate;
+  /* garante que o overlay não “vaze” */
 }
 
-.pagina-destaque--contato::before{
+.pagina-destaque--contato::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,.45); /* ajuste: 0.35 a 0.60 */
+  background: rgba(0, 0, 0, .45);
+  /* ajuste: 0.35 a 0.60 */
   z-index: 0;
 }
 
 /* garante que o conteúdo fique acima do overlay */
-.pagina-destaque--contato > *{
+.pagina-destaque--contato>* {
   position: relative;
   z-index: 1;
 }
 
-.contato-pagina{
+.contato-pagina {
   display: grid;
 }
 
-.contato-card{
+.contato-card {
   background: var(--brand-purple);
   color: var(--white);
   border-radius: 24px;
-  padding: 32px;
+  padding: 60px;
   display: grid;
   gap: 24px;
 }
 
-.contato-texto h2{
+.contato-texto h2 {
   font-size: 1.2rem;
+  padding-bottom: 20px;
+
 }
 
-.contato-formulario{
+.contato-formulario {
   display: grid;
   gap: 16px;
 }
 
-.contato-linha{
+.contato-linha {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
-.contato-linha label{
+.contato-linha label {
   display: grid;
   gap: 6px;
 }
 
-.contato-linha--mensagem{
+.contato-linha--mensagem {
   grid-template-columns: 1fr;
 }
 
 .contato-linha input,
-.contato-linha textarea{
+.contato-linha textarea,
+.contato-linha select {
   border-radius: 999px;
   border: 1px solid var(--white-35);
   background: var(--white-06);
@@ -66,17 +71,37 @@
   padding: 10px 12px;
 }
 
-.contato-linha textarea{
+.contato-linha select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 16px;
+  padding-right: 38px;
+}
+
+.contato-linha select:focus {
+  outline: none;
+  border-color: var(--white);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
+}
+
+.contato-linha select option {
+  color: #f4f1f8;
+  background: #3a2f44;
+}
+
+.contato-linha textarea {
   border-radius: 18px;
   resize: vertical;
 }
 
-.contato-acoes{
+.contato-acoes {
   display: flex;
   justify-content: flex-end;
 }
 
-.contato-acoes button{
+.contato-acoes button {
   border-radius: 999px;
   border: 1px solid var(--white-55);
   background: transparent;
@@ -85,34 +110,48 @@
   cursor: pointer;
 }
 
-.contato-icones{
+.contato-icones {
   display: flex;
-  gap: 10px;
+  gap: 14px;
 }
 
-.contato-icones span{
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  border: 1px solid var(--white-35);
+.contato-icone {
+  width: 60px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
-@media (max-width: 720px){
-  .contato-linha{
+.contato-icone img {
+  width: 50px;
+  height: 50px;
+  display: block;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.contato-icone:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 720px) {
+  .contato-linha {
     grid-template-columns: 1fr;
   }
 
-  .contato-acoes{
+  .contato-acoes {
     justify-content: flex-start;
   }
 }
 
-@media (max-width: 520px){
-  .contato-pagina{
+@media (max-width: 520px) {
+  .contato-pagina {
     padding: 0 20px;
   }
 
-  .contato-card{
+  .contato-card {
     width: 100%;
   }
 }

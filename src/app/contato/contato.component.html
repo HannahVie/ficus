@@ -16,7 +16,23 @@
       <form class="contato-formulario">
         <div class="contato-linha">
           <label>
-            <span>Nome</span>
+            <span>Razão Social</span>
+            <input type="text" />
+          </label>
+          <label>
+            <span>CNPJ</span>
+            <input
+              type="text"
+              inputmode="numeric"
+              autocomplete="off"
+              maxlength="18"
+              placeholder="00.000.000/0000-00"
+              pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}"
+              (input)="onCnpjInput($event)"
+            />
+          </label>
+          <label>
+            <span>Nome do Responsável</span>
             <input type="text" />
           </label>
           <label>
@@ -27,11 +43,27 @@
         <div class="contato-linha">
           <label>
             <span>Telefone</span>
-            <input type="tel" />
+            <input
+              type="tel"
+              inputmode="numeric"
+              autocomplete="tel"
+              maxlength="15"
+              placeholder="(00) 00000-0000"
+              pattern="\(\d{2}\)\s\d{4,5}-\d{4}"
+              (input)="onPhoneInput($event)"
+            />
           </label>
           <label>
             <span>Tipo de obra</span>
-            <input type="text" />
+            <select>
+              <option value="" selected>Selecione um tipo</option>
+              <option>Recuperação de fachadas</option>
+              <option>Impermeabilização</option>
+              <option>Elétrica</option>
+              <option>Hidráulica</option>
+              <option>Esquadrias e vidros</option>
+              <option>Revitalização</option>
+            </select>
           </label>
         </div>
         <label class="contato-linha contato-linha--mensagem">
@@ -44,9 +76,15 @@
       </form>
 
       <div class="contato-icones">
-        <span></span>
-        <span></span>
-        <span></span>
+        <a class="contato-icone" href="#" aria-label="WhatsApp">
+          <img src="/assets/icons/whatsapp.svg" alt="" aria-hidden="true" />
+        </a>
+        <a class="contato-icone" href="#" aria-label="Telefone">
+          <img src="/assets/icons/phone-call.svg" alt="" aria-hidden="true" />
+        </a>
+        <a class="contato-icone" href="#" aria-label="E-mail">
+          <img src="/assets/icons/email.svg" alt="" aria-hidden="true" />
+        </a>
       </div>
     </div>
   </div>
