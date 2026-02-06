@@ -89,7 +89,8 @@ p {
     background: var(--brand-black);
     color: var(--white);
     padding: 165px 0 80px;
-    height: 70vh;
+    min-height: 55vh;
+    height: auto;
 
 }
 
@@ -100,7 +101,8 @@ p {
 }
 
 .pagina-destaque h1 {
-    font-size: 3.5rem;
+    font-size: clamp(2.1rem, 4vw, 3.5rem);
+    line-height: 1.1;
     font-weight: 500;
     margin-bottom: 10px;
 }
@@ -119,6 +121,35 @@ p {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 32px;
+}
+
+@media (max-width: 900px) {
+    .pagina-destaque {
+        padding: 150px 0 70px;
+    }
+
+    .pagina-destaque-conteudo,
+    .pagina-container {
+        padding: 0 28px;
+    }
+}
+
+@media (max-width: 720px) {
+    .pagina-destaque {
+        padding: 120px 0 60px;
+        min-height: 50vh;
+    }
+
+    .pagina-destaque h1 {
+        font-size: clamp(1.9rem, 6vw, 2.6rem);
+    }
+}
+
+@media (max-width: 520px) {
+    .pagina-destaque-conteudo,
+    .pagina-container {
+        padding: 0 20px;
+    }
 }
 
 
