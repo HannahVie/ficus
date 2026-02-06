@@ -941,6 +941,15 @@ p {
     .contact-card {
         padding: 28px 24px;
     }
+
+    .audience-text br,
+    .contact-left br {
+        display: none;
+    }
+
+    .contact-left p {
+        margin-top: 16px;
+    }
 }
 
 
