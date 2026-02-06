@@ -24,21 +24,54 @@
       <p>Soluções <strong>completas</strong> em reformas e fachadas</p>
     </header>
 
-    <div class="o-que-fazemos-linha">
-      @for (servico of servicos; track servico.id) {
-      <button
-        class="o-que-fazemos-card"
-        type="button"
-        [class.o-que-fazemos-card--expandido]="servico.id === servicoAtivoId"
-        [attr.aria-pressed]="servico.id === servicoAtivoId"
-        (click)="setServicoAtivo(servico.id)"
-      >
-        <span class="o-que-fazemos-card-icone" aria-hidden="true">
+    <div class="o-que-fazemos-linha o-que-fazemos-tabs">
+      <div class="o-que-fazemos-tabs-list" role="tablist" aria-label="Serviços">
+        @for (servico of servicos; track servico.id) {
+        <button
+          class="o-que-fazemos-tab"
+          type="button"
+          role="tab"
+          [class.is-active]="servico.id === servicoAtivoId"
+          [attr.aria-selected]="servico.id === servicoAtivoId"
+          (click)="setServicoAtivo(servico.id)"
+        >
+          <span class="o-que-fazemos-tab-icone" aria-hidden="true">
+            <img [src]="servico.icon" alt="" />
+          </span>
+          <span class="o-que-fazemos-tab-titulo">{{ servico.title }}</span>
+        </button>
+        }
+      </div>
+
+      @if (getServicoAtivo(); as servico) {
+      <article class="o-que-fazemos-tabs-panel" role="tabpanel">
+        <span class="o-que-fazemos-panel-icone" aria-hidden="true">
           <img [src]="servico.icon" alt="" />
         </span>
-        <span class="o-que-fazemos-card-titulo">{{ servico.title }}</span>
-        <span class="o-que-fazemos-card-texto">{{ servico.description }}</span>
-      </button>
+        <h3 class="o-que-fazemos-panel-titulo">{{ servico.title }}</h3>
+        <p class="o-que-fazemos-panel-texto">{{ servico.description }}</p>
+      </article>
+      }
+    </div>
+
+    <div class="o-que-fazemos-accordion" aria-label="Serviços">
+      @for (servico of servicos; track servico.id) {
+      <div class="o-que-fazemos-accordion-item">
+        <button
+          class="o-que-fazemos-accordion-header"
+          type="button"
+          [class.is-active]="servico.id === servicoAtivoId"
+          (click)="setServicoAtivo(servico.id)"
+        >
+          <span class="o-que-fazemos-accordion-icone" aria-hidden="true">
+            <img [src]="servico.icon" alt="" />
+          </span>
+          <span class="o-que-fazemos-accordion-titulo">{{ servico.title }}</span>
+        </button>
+        <div class="o-que-fazemos-accordion-panel" [class.is-open]="servico.id === servicoAtivoId">
+          <p>{{ servico.description }}</p>
+        </div>
+      </div>
       }
     </div>
 
@@ -97,12 +130,9 @@
       <div class="audience-text">
         <h2>Para quem fazemos</h2>
         <p>
-          Projetos pensados<br />
-          para condomínios,<br />
-          administradoras<br />
-          e gestores que<br />
-          exigem precisão e<br />
-          previsibilidade.
+          Projetos pensados para condomínios,<br />
+          administradoras e gestores que<br />
+          exigem precisão e previsibilidade.
         </p>
       </div>
     </div>

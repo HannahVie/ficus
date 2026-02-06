@@ -334,6 +334,168 @@ p {
     gap: 18px;
 }
 
+.o-que-fazemos-tabs {
+    display: grid;
+    grid-template-columns: 340px minmax(0, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.o-que-fazemos-tabs-list {
+    display: grid;
+    gap: 12px;
+}
+
+.o-que-fazemos-tab {
+    border: none;
+    background: #E5E6D6;
+    border-radius: 18px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    color: var(--text-darker);
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.o-que-fazemos-tab:hover {
+    transform: translateY(-2px);
+}
+
+.o-que-fazemos-tab.is-active {
+    background: #B9BE90;
+}
+
+.o-que-fazemos-tab-icone {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.9;
+}
+
+.o-que-fazemos-tab-icone img {
+    width: 28px;
+    height: 28px;
+    filter: brightness(0) invert(1);
+}
+
+.o-que-fazemos-tab-titulo {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.o-que-fazemos-tabs-panel {
+    background-image: url('/assets/images/retangulo-aberto.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 28px;
+    padding: 60px 60px;
+    min-height: 260px;
+    display: grid;
+    align-content: start;
+    gap: 10px;
+    max-width: 700px;
+}
+
+.o-que-fazemos-panel-icone img {
+    width: 60px;
+    height: 60px;
+    filter: brightness(0) invert(1);
+}
+
+.o-que-fazemos-panel-titulo {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-darker);
+}
+
+.o-que-fazemos-panel-texto {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-darker);
+    max-width: 250px;
+}
+
+.o-que-fazemos-accordion {
+    display: none;
+}
+
+.o-que-fazemos-accordion-item + .o-que-fazemos-accordion-item {
+    margin-top: 12px;
+}
+
+.o-que-fazemos-accordion-header {
+    width: 100%;
+    border: none;
+    background: #E5E6D6;
+    border-radius: 18px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    color: var(--text-darker);
+    cursor: pointer;
+    position: relative;
+    padding-right: 44px;
+}
+
+.o-que-fazemos-accordion-titulo {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+.o-que-fazemos-accordion-header.is-active {
+    background: #B9BE90;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.o-que-fazemos-accordion-header::after {
+    content: "";
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid rgba(0, 0, 0, 0.45);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.45);
+    transform: translateY(-50%) rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.o-que-fazemos-accordion-header.is-active::after {
+    transform: translateY(-50%) rotate(-135deg);
+}
+
+.o-que-fazemos-accordion-icone img {
+    width: 26px;
+    height: 26px;
+    filter: brightness(0) invert(1);
+}
+
+.o-que-fazemos-accordion-panel {
+    display: none;
+    background: #EDEEE0;
+    border-radius: 0 0 18px 18px;
+    margin-top: -6px;
+    padding: 14px 16px 16px;
+}
+
+.o-que-fazemos-accordion-panel.is-open {
+    display: block;
+}
+
+.o-que-fazemos-accordion-panel p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-darker);
+}
+
 .o-que-fazemos-card {
     flex: 0 0 80px;
     width: 80px;
@@ -770,6 +932,14 @@ p {
         flex-direction: column;
     }
 
+    .o-que-fazemos-tabs {
+        display: none;
+    }
+
+    .o-que-fazemos-accordion {
+        display: block;
+    }
+
     .o-que-fazemos-card {
         width: 100%;
         height: 70px;
@@ -990,7 +1160,7 @@ p {
     }
 
     .audience-text h2 {
-        font-size: 2rem;
+        font-size: 2.6rem;
     }
 
     .contact-card {
@@ -1001,6 +1171,22 @@ p {
 
     .contact-actions {
         justify-content: flex-start;
+    }
+}
+
+@media (max-width: 720px) {
+    .audience-card {
+        grid-template-areas:
+            "text"
+            "image";
+    }
+
+    .audience-text {
+        grid-area: text;
+    }
+
+    .audience-image {
+        grid-area: image;
     }
 }
 
@@ -1058,5 +1244,9 @@ p {
 
     .o-que-fazemos-card--expandido .o-que-fazemos-card-titulo {
         font-size: 1.1rem;
+    }
+
+    .o-que-fazemos-accordion-header {
+        padding: 12px 14px;
     }
 }
