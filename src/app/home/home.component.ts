@@ -49,7 +49,7 @@ export class HomeComponent {
     }
   ];
 
-  servicoAtivoId = 'fachadas';
+  servicoAtivoId: string | null = 'fachadas';
 
   formatPhone(value: string): string {
     const digits = value.replace(/\D+/g, '').slice(0, 11);
@@ -80,14 +80,14 @@ export class HomeComponent {
   }
 
   setServicoAtivo(id: string): void {
-    if (this.servicoAtivoId === id) {
-      return;
-    }
-    this.servicoAtivoId = id;
+    this.servicoAtivoId = this.servicoAtivoId === id ? null : id;
   }
 
   getServicoAtivo() {
-    return this.servicos.find((servico) => servico.id === this.servicoAtivoId) ?? this.servicos[0];
+    if (!this.servicoAtivoId) {
+      return null;
+    }
+    return this.servicos.find((servico) => servico.id === this.servicoAtivoId) ?? null;
   }
 
 }
