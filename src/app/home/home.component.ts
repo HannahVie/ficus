@@ -43,7 +43,7 @@ export class HomeComponent {
     },
     {
       id: 'revitalizacao',
-      title: 'Revitalização',
+      title: 'Revitalização de áreas comuns',
       description: 'Transformação de ambientes e áreas comuns com foco em funcionalidade e estética.',
       icon: '/assets/icons/urban-planning.svg'
     }

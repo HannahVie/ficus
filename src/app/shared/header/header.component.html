@@ -9,18 +9,15 @@
     </button>
   </div>
 
-  <div class="menu-overlay" [class.is-open]="isMenuOpen" (click)="closeMenu()"></div>
-
-  <nav class="menu-panel" [class.is-open]="isMenuOpen" aria-label="Menu principal">
-    <button class="menu-close" type="button" aria-label="Fechar menu" (click)="closeMenu()">
-      <span aria-hidden="true">×</span>
-    </button>
-
-    <a routerLink="/home" (click)="closeMenu()">Home</a>
-    <a routerLink="/servicos" (click)="closeMenu()">Serviços</a>
-    <a routerLink="/quem-somos" (click)="closeMenu()">Quem somos</a>
-    <a routerLink="/metodo" (click)="closeMenu()">Nosso método</a>
-    <a routerLink="/contato" (click)="closeMenu()">Contato</a>
-  </nav>
-
 </header>
+
+<div class="menu-overlay" [class.is-open]="isMenuOpen" (click)="closeMenu()"></div>
+
+<nav class="menu-panel" [class.is-open]="isMenuOpen" aria-label="Menu principal">
+
+  <a routerLink="/home" (click)="closeMenu()">Home</a>
+  <a routerLink="/servicos" (click)="closeMenu()">Serviços</a>
+  <a routerLink="/quem-somos" (click)="closeMenu()">Quem somos</a>
+  <a routerLink="/metodo" (click)="closeMenu()">Nosso método</a>
+  <a routerLink="/contato" (click)="closeMenu()">Contato</a>
+</nav>

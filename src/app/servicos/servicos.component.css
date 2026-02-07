@@ -30,7 +30,6 @@
 .servico-card {
   display: grid;
   grid-template-columns: minmax(220px, 32%) 1fr;
-  gap: 28px;
   border-radius: 28px;
   align-items: center;
   overflow: hidden;
