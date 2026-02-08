@@ -211,11 +211,15 @@
           <button type="submit" class="contact-btn" [disabled]="contactForm.invalid || enviandoContato">{{ enviandoContato ? "Enviando..." : "Enviar" }}</button>
         </div>
 
-        @if (mensagemContatoStatus) {
-        <p class="mensagem-formulario">{{ mensagemContatoStatus }}</p>
-        }
       </form>
 
     </div>
   </div>
 </section>
+
+<app-modal-alerta
+  [aberto]="modalAlertaAberto"
+  [titulo]="modalAlertaTitulo"
+  [mensagem]="modalAlertaMensagem"
+  (fechado)="modalAlertaAberto = false"
+></app-modal-alerta>

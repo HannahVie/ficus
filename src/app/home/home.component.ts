@@ -4,11 +4,12 @@ import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { EmailService } from '../shared/email/email.service';
 import { ContatoService } from '../shared/contato/contato.service';
+import { ModalAlertaComponent } from '../shared/modal-alerta/modal-alerta.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, ModalAlertaComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -19,6 +20,9 @@ export class HomeComponent {
   mensagem = '';
   enviandoContato = false;
   mensagemContatoStatus = '';
+  modalAlertaAberto = false;
+  modalAlertaTitulo = '';
+  modalAlertaMensagem = '';
 
   servicos = [
     {
@@ -99,6 +103,12 @@ export class HomeComponent {
     return this.servicos.find((servico) => servico.id === this.servicoAtivoId) ?? null;
   }
 
+  private openModal(titulo: string, mensagem: string): void {
+    this.modalAlertaTitulo = titulo;
+    this.modalAlertaMensagem = mensagem;
+    this.modalAlertaAberto = true;
+  }
+
   onContactSubmit(form: NgForm): void {
     if (form.invalid || this.enviandoContato) {
       form.control.markAllAsTouched();
@@ -107,6 +117,7 @@ export class HomeComponent {
 
     this.enviandoContato = true;
     this.mensagemContatoStatus = '';
+    this.modalAlertaAberto = false;
 
     this.emailService.send({
       _subject: 'Novo contato - Formulário Home',
@@ -118,10 +129,12 @@ export class HomeComponent {
     }).subscribe({
       next: () => {
         this.mensagemContatoStatus = 'Mensagem enviada com sucesso! Retornaremos em breve.';
+        this.openModal('Mensagem enviada', this.mensagemContatoStatus);
         form.resetForm();
       },
       error: () => {
         this.mensagemContatoStatus = 'Não foi possível enviar agora. Tente novamente em instantes.';
+        this.openModal('Não foi possível enviar', this.mensagemContatoStatus);
       },
       complete: () => {
         this.enviandoContato = false;
