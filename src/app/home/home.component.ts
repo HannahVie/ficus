@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { FormSubmitService } from '../shared/services/form-submit.service';
+import { EmailService } from '../shared/email/email.service';
+import { ContatoService } from '../shared/contato/contato.service';
 
 @Component({
   selector: 'app-home',
@@ -54,7 +55,10 @@ export class HomeComponent {
 
   servicoAtivoId: string | null = 'fachadas';
 
-  constructor(private readonly formSubmitService: FormSubmitService) {}
+  constructor(
+    private readonly emailService: EmailService,
+    public readonly contato: ContatoService
+  ) {}
 
   formatPhone(value: string): string {
     const digits = value.replace(/\D+/g, '').slice(0, 11);
@@ -104,7 +108,7 @@ export class HomeComponent {
     this.enviandoContato = true;
     this.mensagemContatoStatus = '';
 
-    this.formSubmitService.send({
+    this.emailService.send({
       _subject: 'Novo contato - Formulário Home',
       formulario: 'Home - Fale com especialista',
       nome: this.nome,

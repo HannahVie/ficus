@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
-import { FormSubmitService } from '../shared/services/form-submit.service';
+import { EmailService } from '../shared/email/email.service';
+import { ContatoService } from '../shared/contato/contato.service';
 
 @Component({
   selector: 'app-contato',
@@ -21,7 +22,10 @@ export class ContatoComponent {
   enviandoContato = false;
   mensagemContatoStatus = '';
 
-  constructor(private readonly formSubmitService: FormSubmitService) {}
+  constructor(
+    private readonly emailService: EmailService,
+    public readonly contato: ContatoService
+  ) {}
 
   onCnpjInput(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -80,7 +84,7 @@ export class ContatoComponent {
     this.enviandoContato = true;
     this.mensagemContatoStatus = '';
 
-    this.formSubmitService.send({
+    this.emailService.send({
       _subject: 'Nova solicitação de serviços - Formulário Contato',
       formulario: 'Página Contato - Solicitação de serviços',
       razaoSocial: this.razaoSocial,
