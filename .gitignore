@@ -24,6 +24,12 @@ yarn-error.log
 .vscode/
 .history/*
 
+# Local env (never commit)
+.env
+
+# Generated at build/start time from `.env` (never commit)
+src/environments/environment.development.ts
+
 # Miscellaneous
 /.angular/cache
 .sass-cache/

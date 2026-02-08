@@ -1,0 +1,21 @@
+@if (aberto) {
+  <div class="modal-alerta-overlay" (click)="onOverlayClick()" role="presentation">
+    <section
+      class="modal-alerta-card"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-alerta-titulo"
+      (click)="onCardClick($event)"
+    >
+      <h2 id="modal-alerta-titulo" class="modal-alerta-titulo">{{ titulo }}</h2>
+      <p class="modal-alerta-mensagem">{{ mensagem }}</p>
+
+      <div class="modal-alerta-acoes">
+        <button #closeBtn type="button" class="modal-alerta-botao" (click)="close()">
+          {{ textoBotaoFechar || 'Fechar' }}
+        </button>
+      </div>
+    </section>
+  </div>
+}
+

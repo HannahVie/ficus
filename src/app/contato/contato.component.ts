@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { EmailService } from '../shared/email/email.service';
 import { ContatoService } from '../shared/contato/contato.service';
+import { ModalAlertaComponent } from '../shared/modal-alerta/modal-alerta.component';
 
 @Component({
   selector: 'app-contato',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ModalAlertaComponent],
   templateUrl: './contato.component.html',
   styleUrls: ['./contato.component.css']
 })
@@ -21,11 +22,20 @@ export class ContatoComponent {
   mensagem = '';
   enviandoContato = false;
   mensagemContatoStatus = '';
+  modalAlertaAberto = false;
+  modalAlertaTitulo = '';
+  modalAlertaMensagem = '';
 
   constructor(
     private readonly emailService: EmailService,
     public readonly contato: ContatoService
   ) {}
+
+  private openModal(titulo: string, mensagem: string): void {
+    this.modalAlertaTitulo = titulo;
+    this.modalAlertaMensagem = mensagem;
+    this.modalAlertaAberto = true;
+  }
 
   onCnpjInput(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -83,6 +93,7 @@ export class ContatoComponent {
 
     this.enviandoContato = true;
     this.mensagemContatoStatus = '';
+    this.modalAlertaAberto = false;
 
     this.emailService.send({
       _subject: 'Nova solicitação de serviços - Formulário Contato',
@@ -97,10 +108,12 @@ export class ContatoComponent {
     }).subscribe({
       next: () => {
         this.mensagemContatoStatus = 'Solicitação enviada com sucesso! Retornaremos em breve.';
+        this.openModal('Solicitação enviada', this.mensagemContatoStatus);
         form.resetForm();
       },
       error: () => {
         this.mensagemContatoStatus = 'Não foi possível enviar agora. Tente novamente em instantes.';
+        this.openModal('Não foi possível enviar', this.mensagemContatoStatus);
       },
       complete: () => {
         this.enviandoContato = false;

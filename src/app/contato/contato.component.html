@@ -82,9 +82,6 @@
           </button>
         </div>
 
-        @if (mensagemContatoStatus) {
-        <p class="mensagem-formulario">{{ mensagemContatoStatus }}</p>
-        }
       </form>
 
       <div class="contato-icones">
@@ -101,3 +98,10 @@
     </div>
   </div>
 </section>
+
+<app-modal-alerta
+  [aberto]="modalAlertaAberto"
+  [titulo]="modalAlertaTitulo"
+  [mensagem]="modalAlertaMensagem"
+  (fechado)="modalAlertaAberto = false"
+></app-modal-alerta>
