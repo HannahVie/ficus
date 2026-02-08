@@ -13,31 +13,34 @@
         <h2>Responderemos com agilidade e orientação técnica.</h2>
       </div>
 
-      <form class="contato-formulario">
+      <form class="contato-formulario" #contatoForm="ngForm" (ngSubmit)="onSubmit(contatoForm)">
         <div class="contato-linha">
           <label>
             <span>Razão Social</span>
-            <input type="text" />
+            <input type="text" name="razaoSocial" [(ngModel)]="razaoSocial" required minlength="2" />
           </label>
           <label>
             <span>CNPJ</span>
             <input
               type="text"
+              name="cnpj"
+              [(ngModel)]="cnpj"
               inputmode="numeric"
               autocomplete="off"
               maxlength="18"
               placeholder="00.000.000/0000-00"
               pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}"
               (input)="onCnpjInput($event)"
+              required
             />
           </label>
           <label>
             <span>Nome do Responsável</span>
-            <input type="text" />
+            <input type="text" name="nomeResponsavel" [(ngModel)]="nomeResponsavel" required minlength="3" />
           </label>
           <label>
             <span>E-mail</span>
-            <input type="email" />
+            <input type="email" name="email" [(ngModel)]="email" required />
           </label>
         </div>
         <div class="contato-linha">
@@ -45,34 +48,43 @@
             <span>Telefone</span>
             <input
               type="tel"
+              name="telefone"
+              [(ngModel)]="telefone"
               inputmode="numeric"
               autocomplete="tel"
               maxlength="15"
               placeholder="(00) 00000-0000"
               pattern="\(\d{2}\)\s\d{4,5}-\d{4}"
               (input)="onPhoneInput($event)"
+              required
             />
           </label>
           <label>
             <span>Tipo de obra</span>
-            <select>
+            <select name="tipoObra" [(ngModel)]="tipoObra" required>
               <option value="" selected>Selecione um tipo</option>
               <option>Recuperação de fachadas</option>
               <option>Impermeabilização</option>
               <option>Elétrica</option>
               <option>Hidráulica</option>
               <option>Esquadrias e vidros</option>
-              <option>Revitalização de áreas comuns</option>
+              <option>Revitalização</option>
             </select>
           </label>
         </div>
         <label class="contato-linha contato-linha--mensagem">
           <span>Mensagem</span>
-          <textarea rows="5"></textarea>
+          <textarea name="mensagem" [(ngModel)]="mensagem" rows="5" required minlength="10"></textarea>
         </label>
         <div class="contato-acoes">
-          <button type="button">Enviar</button>
+          <button type="submit" [disabled]="contatoForm.invalid || enviandoContato">
+            {{ enviandoContato ? 'Enviando...' : 'Enviar' }}
+          </button>
         </div>
+
+        @if (mensagemContatoStatus) {
+        <p class="field-hint">{{ mensagemContatoStatus }}</p>
+        }
       </form>
 
       <div class="contato-icones">
