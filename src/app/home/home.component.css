@@ -103,6 +103,12 @@
   background: var(--off-white);
   padding: 80px 0;
   color: var(--text-dark);
+
+  /* Cores padronizadas (fonte de verdade = tabs/desktop) */
+  --servicos-pill-bg: #c4ca96;
+  --servicos-pill-bg-active: #92985a;
+  --servicos-pill-text: var(--text-darker);
+  --servicos-painel-aberto-bg: url('/assets/images/retangulo-aberto.png');
 }
 
 .o-que-fazemos-container {
@@ -144,14 +150,14 @@
 
 .o-que-fazemos-tab {
   border: none;
-  background: #c4ca96;
+  background: var(--servicos-pill-bg);
   border-radius: 18px;
   padding: 14px 16px;
   display: flex;
   align-items: center;
   gap: 12px;
   text-align: left;
-  color: var(--text-darker);
+  color: var(--servicos-pill-text);
   cursor: pointer;
   transition: transform 0.15s ease, background 0.2s ease;
 }
@@ -161,7 +167,7 @@
 }
 
 .o-que-fazemos-tab.is-active {
-  background: #92985a;
+  background: var(--servicos-pill-bg-active);
 }
 
 .o-que-fazemos-tab-icone {
@@ -185,7 +191,7 @@
 }
 
 .o-que-fazemos-tabs-panel {
-  background-image: url('/assets/images/retangulo-aberto.png');
+  background-image: var(--servicos-painel-aberto-bg);
   background-size: cover;
   background-position: center;
   border-radius: 28px;
@@ -228,14 +234,14 @@
 .o-que-fazemos-accordion-header {
   width: 100%;
   border: none;
-  background: #e5e6d6;
+  background: var(--servicos-pill-bg);
   border-radius: 18px;
   padding: 14px 16px;
   display: flex;
   align-items: center;
   gap: 12px;
   text-align: left;
-  color: var(--text-darker);
+  color: var(--servicos-pill-text);
   cursor: pointer;
   position: relative;
   padding-right: 44px;
@@ -247,7 +253,7 @@
 }
 
 .o-que-fazemos-accordion-header.is-active {
-  background: #b9be90;
+  background: var(--servicos-pill-bg-active);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -277,7 +283,9 @@
 
 .o-que-fazemos-accordion-panel {
   display: none;
-  background: #edeee0;
+  background-image: var(--servicos-painel-aberto-bg);
+  background-size: cover;
+  background-position: center;
   border-radius: 0 0 18px 18px;
   margin-top: -6px;
   padding: 14px 16px 16px;
