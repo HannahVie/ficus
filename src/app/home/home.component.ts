@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, NgModel } from '@angular/forms';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { FormSubmitService } from '../shared/services/form-submit.service';
 
 @Component({
   selector: 'app-home',
@@ -15,6 +16,8 @@ export class HomeComponent {
   email = '';
   telefone = '';
   mensagem = '';
+  enviandoContato = false;
+  mensagemContatoStatus = '';
 
   servicos = [
     {
@@ -50,6 +53,8 @@ export class HomeComponent {
   ];
 
   servicoAtivoId: string | null = 'fachadas';
+
+  constructor(private readonly formSubmitService: FormSubmitService) {}
 
   formatPhone(value: string): string {
     const digits = value.replace(/\D+/g, '').slice(0, 11);
@@ -90,4 +95,33 @@ export class HomeComponent {
     return this.servicos.find((servico) => servico.id === this.servicoAtivoId) ?? null;
   }
 
+  onContactSubmit(form: NgForm): void {
+    if (form.invalid || this.enviandoContato) {
+      form.control.markAllAsTouched();
+      return;
+    }
+
+    this.enviandoContato = true;
+    this.mensagemContatoStatus = '';
+
+    this.formSubmitService.send({
+      _subject: 'Novo contato - Formulário Home',
+      formulario: 'Home - Fale com especialista',
+      nome: this.nome,
+      email: this.email,
+      telefone: this.telefone,
+      mensagem: this.mensagem
+    }).subscribe({
+      next: () => {
+        this.mensagemContatoStatus = 'Mensagem enviada com sucesso! Retornaremos em breve.';
+        form.resetForm();
+      },
+      error: () => {
+        this.mensagemContatoStatus = 'Não foi possível enviar agora. Tente novamente em instantes.';
+      },
+      complete: () => {
+        this.enviandoContato = false;
+      }
+    });
+  }
 }
