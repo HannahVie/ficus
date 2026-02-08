@@ -63,7 +63,7 @@ Existem 2 formulários:
 - Home: "Fale com um especialista" (`src/app/home/home.component.html`)
 - Contato: "Solicitação de serviços" (`src/app/contato/contato.component.html`)
 
-Ambos enviam via `EmailService` (`src/app/shared/email/email.service.ts`), usando **FormSubmit** (`formsubmit.co`) como backend (sem servidor próprio).
+Ambos enviam via `EmailService` (`src/app/shared/email/email.service.ts`), usando **FormSubmit** (`formsubmit.co`) como backend.
 
 Configuração do destinatário:
 - `src/app/app.config.ts` -> `EmailModule.forRoot({ destinatario: '...' })`
