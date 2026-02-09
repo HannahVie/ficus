@@ -12,8 +12,7 @@ Landing page institucional da **Ficus Reforma e Fachada**, construída como SPA 
 
 ## Páginas e Rotas
 
-- `/` redireciona para `/home`
-- `/home` (landing)
+- `/` (landing)
 - `/servicos`
 - `/quem-somos`
 - `/metodo`
