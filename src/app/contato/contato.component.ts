@@ -19,7 +19,9 @@ export class ContatoComponent {
   tipoObra = '';
   mensagem = '';
   enviandoContato = false;
-  mensagemContatoStatus = '';
+  modalStatusVisivel = false;
+  modalStatusTipo: 'success' | 'error' = 'success';
+  modalStatusMensagem = '';
 
   constructor(private readonly formSubmitService: FormSubmitService) {}
 
@@ -71,6 +73,16 @@ export class ContatoComponent {
     input.value = this.telefone;
   }
 
+  abrirModalStatus(tipo: 'success' | 'error', mensagem: string): void {
+    this.modalStatusTipo = tipo;
+    this.modalStatusMensagem = mensagem;
+    this.modalStatusVisivel = true;
+  }
+
+  fecharModalStatus(): void {
+    this.modalStatusVisivel = false;
+  }
+
   onSubmit(form: NgForm): void {
     if (form.invalid || this.enviandoContato) {
       form.control.markAllAsTouched();
@@ -78,7 +90,7 @@ export class ContatoComponent {
     }
 
     this.enviandoContato = true;
-    this.mensagemContatoStatus = '';
+    this.fecharModalStatus();
 
     this.formSubmitService.send({
       _subject: 'Nova solicitação de serviços - Formulário Contato',
@@ -92,11 +104,11 @@ export class ContatoComponent {
       mensagem: this.mensagem
     }).subscribe({
       next: () => {
-        this.mensagemContatoStatus = 'Solicitação enviada com sucesso! Retornaremos em breve.';
+        this.abrirModalStatus('success', 'Solicitacao enviada com sucesso! Retornaremos em breve.');
         form.resetForm();
       },
       error: () => {
-        this.mensagemContatoStatus = 'Não foi possível enviar agora. Tente novamente em instantes.';
+        this.abrirModalStatus('error', 'Nao foi possivel enviar agora. Tente novamente em instantes.');
       },
       complete: () => {
         this.enviandoContato = false;

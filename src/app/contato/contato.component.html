@@ -81,11 +81,7 @@
             {{ enviandoContato ? 'Enviando...' : 'Enviar' }}
           </button>
         </div>
-
-        @if (mensagemContatoStatus) {
-        <p class="field-hint">{{ mensagemContatoStatus }}</p>
-        }
-      </form>
+</form>
 
       <div class="contato-icones">
         <a class="contato-icone" href="https://wa.me/5521971902026?text=Olá%2C%20vim%20através%20do%20site" target="_blank" aria-label="WhatsApp">
@@ -101,3 +97,11 @@
     </div>
   </div>
 </section>
+@if (modalStatusVisivel) {
+<div class="status-modal-backdrop" role="presentation" (click)="fecharModalStatus()">
+  <div class="status-modal" role="alertdialog" aria-modal="true" [attr.aria-label]="modalStatusTipo === 'success' ? 'Envio realizado' : 'Erro no envio'" (click)="$event.stopPropagation()">
+    <p class="status-modal-message">{{ modalStatusMensagem }}</p>
+    <button type="button" class="status-modal-button" (click)="fecharModalStatus()">Fechar</button>
+  </div>
+</div>
+}

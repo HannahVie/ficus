@@ -17,7 +17,9 @@ export class HomeComponent {
   telefone = '';
   mensagem = '';
   enviandoContato = false;
-  mensagemContatoStatus = '';
+  modalStatusVisivel = false;
+  modalStatusTipo: 'success' | 'error' = 'success';
+  modalStatusMensagem = '';
 
   servicos = [
     {
@@ -95,6 +97,16 @@ export class HomeComponent {
     return this.servicos.find((servico) => servico.id === this.servicoAtivoId) ?? null;
   }
 
+  abrirModalStatus(tipo: 'success' | 'error', mensagem: string): void {
+    this.modalStatusTipo = tipo;
+    this.modalStatusMensagem = mensagem;
+    this.modalStatusVisivel = true;
+  }
+
+  fecharModalStatus(): void {
+    this.modalStatusVisivel = false;
+  }
+
   onContactSubmit(form: NgForm): void {
     if (form.invalid || this.enviandoContato) {
       form.control.markAllAsTouched();
@@ -102,7 +114,7 @@ export class HomeComponent {
     }
 
     this.enviandoContato = true;
-    this.mensagemContatoStatus = '';
+    this.fecharModalStatus();
 
     this.formSubmitService.send({
       _subject: 'Novo contato - Formulário Home',
@@ -113,11 +125,11 @@ export class HomeComponent {
       mensagem: this.mensagem
     }).subscribe({
       next: () => {
-        this.mensagemContatoStatus = 'Mensagem enviada com sucesso! Retornaremos em breve.';
+        this.abrirModalStatus('success', 'Mensagem enviada com sucesso! Retornaremos em breve.');
         form.resetForm();
       },
       error: () => {
-        this.mensagemContatoStatus = 'Não foi possível enviar agora. Tente novamente em instantes.';
+        this.abrirModalStatus('error', 'Nao foi possivel enviar agora. Tente novamente em instantes.');
       },
       complete: () => {
         this.enviandoContato = false;

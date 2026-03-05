@@ -210,13 +210,16 @@
         <div class="contact-actions">
           <button type="submit" class="contact-btn" [disabled]="contactForm.invalid || enviandoContato">{{ enviandoContato ? "Enviando..." : "Enviar" }}</button>
         </div>
-
-        @if (mensagemContatoStatus) {
-        <p class="field-hint">{{ mensagemContatoStatus }}</p>
-        }
-      </form>
+</form>
 
     </div>
   </div>
 </section>
-
+@if (modalStatusVisivel) {
+<div class="status-modal-backdrop" role="presentation" (click)="fecharModalStatus()">
+  <div class="status-modal" role="alertdialog" aria-modal="true" [attr.aria-label]="modalStatusTipo === 'success' ? 'Envio realizado' : 'Erro no envio'" (click)="$event.stopPropagation()">
+    <p class="status-modal-message">{{ modalStatusMensagem }}</p>
+    <button type="button" class="status-modal-button" (click)="fecharModalStatus()">Fechar</button>
+  </div>
+</div>
+}

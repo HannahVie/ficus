@@ -36,7 +36,7 @@
     --off-white: #f7f7f5;
     --header-height: 120px;
 
-    /* Transparências */
+    /* TransparÃªncias */
     --black-65: rgba(0, 0, 0, 0.65);
     --black-55: rgba(0, 0, 0, 0.55);
     --black-40: rgba(0, 0, 0, 0.4);
@@ -73,14 +73,14 @@ body {
 
 p {
     font-size: 1.2rem;
-    /* tamanho base mais confortável */
+    /* tamanho base mais confortÃ¡vel */
     line-height: 1.65;
     /* melhora MUITO a leitura */
 }
 
 
 /* =======================
-   PÁGINAS
+   PÃGINAS
 ======================= */
 
 .container {
@@ -257,7 +257,7 @@ p {
 }
 
 /* =======================
-   BOTÕES
+   BOTÃ•ES
 ======================= */
 .destaque-botoes {
     display: flex;
@@ -319,7 +319,7 @@ p {
     font-weight: 500;
     margin-bottom: 10px;
     color: var(--brand-fig-green);
-    /* ajuste para o verde do protótipo */
+    /* ajuste para o verde do protÃ³tipo */
 }
 
 .o-que-fazemos-cabecalho p {
@@ -514,13 +514,13 @@ p {
     padding: 14px 10px;
     position: relative;
     cursor: pointer;
-    /* transições: hover (transform) + expansão (largura, raio, padding) */
+    /* transiÃ§Ãµes: hover (transform) + expansÃ£o (largura, raio, padding) */
     transition:
-        transform 0.15s ease, /* elevação no hover */
-        flex-basis 0.5s ease, /* expansão/recolhimento da largura */
-        width 0.5s ease, /* suporte para transição de largura */
-        border-radius 0.5s ease, /* pílula -> card */
-        padding 0.2s ease; /* abre o espaço interno */
+        transform 0.15s ease, /* elevaÃ§Ã£o no hover */
+        flex-basis 0.5s ease, /* expansÃ£o/recolhimento da largura */
+        width 0.5s ease, /* suporte para transiÃ§Ã£o de largura */
+        border-radius 0.5s ease, /* pÃ­lula -> card */
+        padding 0.2s ease; /* abre o espaÃ§o interno */
     will-change: flex-basis, width, border-radius, padding;
 }
 
@@ -660,7 +660,7 @@ p {
 ======================= */
 .secao-como-trabalhamos {
     background: var(--brand-beige);
-    /* cinza claro do protótipo */
+    /* cinza claro do protÃ³tipo */
     padding: 80px 0;
     color: var(--text-dark);
 }
@@ -745,7 +745,7 @@ p {
 ======================= */
 .audience {
     background: var(--brand-purple);
-    /* roxo do protótipo */
+    /* roxo do protÃ³tipo */
     padding: 90px 0;
     color: var(--white);
 }
@@ -759,7 +759,7 @@ p {
 .audience-card {
     display: grid;
     grid-template-columns: 520px 1fr;
-    /* imagem maior (mais parecida com o protótipo) */
+    /* imagem maior (mais parecida com o protÃ³tipo) */
     gap: 56px;
     align-items: center;
 }
@@ -768,7 +768,7 @@ p {
   width: 100%;
   border-radius: 24px;
   overflow: hidden;
-  aspect-ratio: 3 / 2;           /* se quiser mais “alto”, troque para: 3 / 2 */
+  aspect-ratio: 3 / 2;           /* se quiser mais â€œaltoâ€, troque para: 3 / 2 */
 }
 
 .audience-image img{
@@ -1046,7 +1046,7 @@ p {
 
     .footer-top-wrapper {
         max-width: 900px;
-        /* antes 980px → mais elegante */
+        /* antes 980px â†’ mais elegante */
         margin: 0 auto;
     }
 
@@ -1270,4 +1270,73 @@ p {
     .o-que-fazemos-accordion-header {
         padding: 12px 14px;
     }
+}
+
+/* =======================
+   STATUS MODAL
+======================= */
+.status-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.status-modal {
+  width: min(520px, 100%);
+  border-radius: 20px;
+  padding: 24px;
+  background: var(--white);
+  color: var(--text-dark);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+}
+
+.status-modal-tag {
+  display: inline-flex;
+  margin-bottom: 10px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #e7f4e8;
+  color: #1e7a33;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.status-modal-tag--error {
+  background: #fde8e8;
+  color: #a11717;
+}
+
+.status-modal-message {
+  margin-bottom: 18px;
+  line-height: 1.5;
+  color: var(--text-dark);
+}
+
+.status-modal-button {
+  border: 1px solid var(--brand-purple);
+  border-radius: 999px;
+  background: var(--brand-purple);
+  color: var(--white);
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.status-modal-button:hover {
+  opacity: 0.92;
+}
+
+@media (max-width: 520px) {
+  .status-modal {
+    padding: 20px 16px;
+  }
+
+  .status-modal-button {
+    width: 100%;
+  }
 }
