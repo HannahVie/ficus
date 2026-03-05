@@ -1,28 +1,40 @@
 .modal-alerta-overlay {
   position: fixed;
   inset: 0;
-  background: var(--black-55);
-  display: grid;
-  place-items: center;
-  padding: 20px;
-  z-index: 9999;
-  animation: modalFadeIn 140ms ease-out;
+  background: rgba(0, 0, 0, 0.68);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(80px, 14vh, 140px) 20px 20px;
+  z-index: 2147483647;
+  overflow-y: auto;
+  animation: modalFadeIn 180ms ease-out;
 }
 
 .modal-alerta-card {
-  width: min(520px, 100%);
-  border-radius: 18px;
+  width: min(620px, 100%);
+  border-radius: 22px;
   background: var(--white);
   color: var(--text-dark);
-  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
-  padding: 20px 18px 16px;
-  animation: modalPopIn 160ms ease-out;
+  border: 2px solid rgba(145, 152, 83, 0.45);
+  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.5);
+  padding: 24px 22px 18px;
+  animation: modalPopIn 220ms cubic-bezier(0.2, 0.78, 0.2, 1);
+}
+
+.modal-alerta-selo {
+  width: 52px;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand-fig-green), var(--brand-wine));
+  margin-bottom: 14px;
 }
 
 .modal-alerta-titulo {
-  font-size: 1.35rem;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
   line-height: 1.15;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--brand-fig-green);
   margin: 0 0 10px;
 }
@@ -37,28 +49,28 @@
 .modal-alerta-acoes {
   display: flex;
   justify-content: flex-end;
-  margin-top: 16px;
+  margin-top: 20px;
 }
 
 .modal-alerta-botao {
-  border: 1px solid rgba(0, 0, 0, 0.18);
-  background: transparent;
-  color: var(--text-dark);
+  border: 1px solid transparent;
+  background: var(--brand-fig-green);
+  color: var(--white);
   border-radius: 999px;
-  padding: 10px 18px;
+  padding: 10px 22px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+  transition: transform 120ms ease, background 120ms ease, box-shadow 120ms ease;
 }
 
 .modal-alerta-botao:hover {
-  background: rgba(0, 0, 0, 0.05);
-  border-color: rgba(0, 0, 0, 0.26);
+  background: #7e8447;
+  box-shadow: 0 10px 24px rgba(145, 152, 83, 0.35);
   transform: translateY(-1px);
 }
 
 .modal-alerta-botao:focus-visible {
-  outline: 2px solid var(--brand-fig-green);
+  outline: 2px solid #6c7339;
   outline-offset: 2px;
 }
 
@@ -68,7 +80,7 @@
 }
 
 @keyframes modalPopIn {
-  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  from { opacity: 0; transform: translateY(-16px) scale(0.98); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 

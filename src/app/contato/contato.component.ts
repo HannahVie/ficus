@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, NgModel } from '@angular/forms';
 import { EmailService } from '../shared/email/email.service';
 import { ContatoService } from '../shared/contato/contato.service';
 import { ModalAlertaComponent } from '../shared/modal-alerta/modal-alerta.component';
@@ -119,5 +119,30 @@ export class ContatoComponent {
         this.enviandoContato = false;
       }
     });
+  }
+
+  getFieldError(control: NgModel | null, label: string): string {
+    if (!control?.errors || !control.touched) {
+      return '';
+    }
+
+    if (control.errors['required']) {
+      return `${label} e obrigatorio.`;
+    }
+
+    if (control.errors['email']) {
+      return 'Informe um e-mail valido.';
+    }
+
+    if (control.errors['minlength']) {
+      const min = control.errors['minlength'].requiredLength;
+      return `${label} deve ter ao menos ${min} caracteres.`;
+    }
+
+    if (control.errors['pattern']) {
+      return `${label} esta em formato invalido.`;
+    }
+
+    return 'Verifique este campo.';
   }
 }

@@ -13,11 +13,14 @@
         <h2>Responderemos com agilidade e orientação técnica.</h2>
       </div>
 
-      <form class="contato-formulario" #contatoForm="ngForm" (ngSubmit)="onSubmit(contatoForm)">
+      <form class="contato-formulario" #contatoForm="ngForm" (ngSubmit)="onSubmit(contatoForm)" novalidate>
         <div class="contato-linha">
           <label>
             <span>Razão Social</span>
-            <input type="text" name="razaoSocial" [(ngModel)]="razaoSocial" required minlength="2" />
+            <input type="text" name="razaoSocial" [(ngModel)]="razaoSocial" required minlength="2" #razaoSocialModel="ngModel" />
+            @if (getFieldError(razaoSocialModel, 'Razao social'); as erro) {
+              <span class="field-hint">{{ erro }}</span>
+            }
           </label>
           <label>
             <span>CNPJ</span>
@@ -31,15 +34,25 @@
               placeholder="00.000.000/0000-00"
               pattern="\d{2}\.\d{3}\.\d{3}\/\d{4}-\d{2}"
               (input)="onCnpjInput($event)"
+              #cnpjModel="ngModel"
             />
+            @if (getFieldError(cnpjModel, 'CNPJ'); as erro) {
+              <span class="field-hint">{{ erro }}</span>
+            }
           </label>
           <label>
             <span>Nome do Responsável</span>
-            <input type="text" name="nomeResponsavel" [(ngModel)]="nomeResponsavel" required minlength="3" />
+            <input type="text" name="nomeResponsavel" [(ngModel)]="nomeResponsavel" required minlength="3" #nomeResponsavelModel="ngModel" />
+            @if (getFieldError(nomeResponsavelModel, 'Nome do responsavel'); as erro) {
+              <span class="field-hint">{{ erro }}</span>
+            }
           </label>
           <label>
             <span>E-mail</span>
-            <input type="email" name="email" [(ngModel)]="email" required />
+            <input type="email" name="email" [(ngModel)]="email" required #emailModel="ngModel" />
+            @if (getFieldError(emailModel, 'E-mail'); as erro) {
+              <span class="field-hint">{{ erro }}</span>
+            }
           </label>
         </div>
         <div class="contato-linha">
@@ -55,11 +68,15 @@
               placeholder="(00) 00000-0000"
               pattern="\(\d{2}\)\s\d{4,5}-\d{4}"
               (input)="onPhoneInput($event)"
+              #telefoneModel="ngModel"
             />
+            @if (getFieldError(telefoneModel, 'Telefone'); as erro) {
+              <span class="field-hint">{{ erro }}</span>
+            }
           </label>
           <label>
             <span>Tipo de obra</span>
-            <select name="tipoObra" [(ngModel)]="tipoObra" required>
+            <select name="tipoObra" [(ngModel)]="tipoObra" required #tipoObraModel="ngModel">
               <option value="" selected>Selecione um tipo</option>
               <option>Recuperação de fachadas</option>
               <option>Impermeabilização</option>
@@ -68,14 +85,20 @@
               <option>Esquadrias e vidros</option>
               <option>Revitalização</option>
             </select>
+            @if (getFieldError(tipoObraModel, 'Tipo de obra'); as erro) {
+              <span class="field-hint">{{ erro }}</span>
+            }
           </label>
         </div>
         <label class="contato-linha contato-linha--mensagem">
           <span>Mensagem</span>
-          <textarea name="mensagem" [(ngModel)]="mensagem" rows="5" required minlength="10"></textarea>
+          <textarea name="mensagem" [(ngModel)]="mensagem" rows="5" required minlength="10" #mensagemModel="ngModel"></textarea>
+          @if (getFieldError(mensagemModel, 'Mensagem'); as erro) {
+            <span class="field-hint">{{ erro }}</span>
+          }
         </label>
         <div class="contato-acoes">
-          <button type="submit" [disabled]="contatoForm.invalid || enviandoContato">
+          <button type="submit" [disabled]="enviandoContato">
             {{ enviandoContato ? 'Enviando...' : 'Enviar' }}
           </button>
         </div>

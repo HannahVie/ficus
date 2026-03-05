@@ -27,8 +27,7 @@ yarn-error.log
 # Local env (never commit)
 .env
 
-# Generated at build/start time from `.env` (never commit)
-src/environments/environment.development.ts
+# Generated at build/start time from `.env` (tracked fallback file exists)
 
 # Miscellaneous
 /.angular/cache
