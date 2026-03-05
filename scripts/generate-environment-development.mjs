@@ -34,7 +34,7 @@ fs.mkdirSync(outDir, { recursive: true });
 
 const ts =
   `// Auto-generated from .env (local only).\n` +
-  `// This file is ignored by git: src/environments/environment.development.ts\n` +
+  `// This file may be overwritten locally when start/build scripts run.\n` +
   `export const environment = {\n` +
   `  production: false,\n` +
   `  emailFormulario: ${JSON.stringify(emailFormulario)}\n` +
