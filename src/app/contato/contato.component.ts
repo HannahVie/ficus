@@ -104,7 +104,7 @@ export class ContatoComponent {
       mensagem: this.mensagem
     }).subscribe({
       next: () => {
-        this.abrirModalStatus('success', 'Solicitacao enviada com sucesso! Retornaremos em breve.');
+        this.abrirModalStatus('success', 'Solicitação enviada com sucesso! Retornaremos em breve.');
         form.resetForm();
       },
       error: () => {
